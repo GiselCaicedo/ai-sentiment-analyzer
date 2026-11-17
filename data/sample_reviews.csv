@@ -1,0 +1,81 @@
+review_id,date,product,rating,review_text,true_label
+1,2026-08-01,Latte,4,"Silky milk and a deep espresso flavor. I would order it again.",positive
+2,2026-11-01,Latte,5,"Lovely foam and exactly the right temperature.",positive
+3,2026-10-01,Latte,4,"The barista made it with oat milk and it tasted excellent.",positive
+4,2026-09-01,Latte,5,"The vanilla latte was subtle and wonderfully smooth.",positive
+5,2026-08-02,Latte,4,"I did not expect to love the lavender flavor this much.",positive
+6,2026-11-02,Latte,3,"It tasted like the latte I usually get here.",neutral
+7,2026-10-02,Latte,3,"The milk and espresso were both noticeable.",neutral
+8,2026-09-02,Latte,3,"It was a standard latte, about what I expected.",neutral
+9,2026-08-03,Latte,1,"The milk tasted scorched and left a bitter aftertaste.",negative
+10,2026-10-03,Latte,2,"This was lukewarm by the time it reached the table.",negative
+11,2026-09-03,Espresso,4,"A bright shot with a pleasant orange finish.",positive
+12,2026-08-04,Espresso,5,"It was rich without the harsh bite I sometimes get.",positive
+13,2026-11-03,Espresso,4,"The double shot was balanced and beautifully pulled.",positive
+14,2026-10-04,Espresso,5,"A lovely little espresso. The crema stayed until the last sip.",positive
+15,2026-09-04,Espresso,4,"The chocolate notes came through clearly. Excellent.",positive
+16,2026-08-05,Espresso,3,"The single shot came in a small ceramic cup.",neutral
+17,2026-11-04,Espresso,3,"I ordered it after lunch. It was a typical espresso.",neutral
+18,2026-10-05,Espresso,3,"It was neither particularly strong nor particularly mild.",neutral
+19,2026-09-05,Espresso,1,"The shot was sour and watery.",negative
+20,2026-10-06,Espresso,2,"My espresso tasted like burnt rubber.",negative
+21,2026-10-07,Cold Brew,4,"Clean and refreshing, even after the ice melted.",positive
+22,2026-09-06,Cold Brew,5,"The cold brew was smooth with a lovely cocoa finish.",positive
+23,2026-08-06,Cold Brew,4,"Finally found a cold brew that I enjoy without sugar.",positive
+24,2026-11-05,Cold Brew,5,"It was cold, strong, and exactly what I wanted on a hot afternoon.",positive
+25,2026-10-08,Cold Brew,4,"I liked the rounded flavor and would buy another bottle.",positive
+26,2026-09-07,Cold Brew,3,"It was served black in a tall glass with ice.",neutral
+27,2026-08-07,Cold Brew,3,"The cold brew was fairly ordinary for the price.",neutral
+28,2026-11-06,Cold Brew,3,"The drink was strong, which may suit some people.",neutral
+29,2026-10-09,Cold Brew,1,"My cold brew tasted stale before I even added milk.",negative
+30,2026-10-10,Cold Brew,2,"There was so much ice that I barely got any coffee.",negative
+31,2026-11-07,Croissant,4,"The croissant shattered into buttery flakes. It was delicious.",positive
+32,2026-10-11,Croissant,5,"It tasted fresh from the oven and the center was beautifully soft.",positive
+33,2026-09-08,Croissant,4,"The almond filling was generous and pleasantly nutty.",positive
+34,2026-08-08,Croissant,5,"I loved the crisp edges and delicate layers.",positive
+35,2026-11-08,Croissant,4,"This was the best plain croissant I have had all month.",positive
+36,2026-10-12,Croissant,3,"It was a regular-sized croissant served on a plate.",neutral
+37,2026-09-09,Croissant,3,"There was nothing unusual about the texture or flavor.",neutral
+38,2026-10-13,Croissant,2,"The pastry was dry and tasted like it was baked yesterday.",negative
+39,2026-11-09,Croissant,1,"My chocolate croissant was burnt underneath.",negative
+40,2026-10-14,Croissant,2,"The middle was raw and sticky.",negative
+41,2026-08-09,Bagel,4,"The sesame bagel had a great chew and a crisp outside.",positive
+42,2026-11-10,Bagel,5,"The cream cheese was fresh and spread all the way to the edges.",positive
+43,2026-10-15,Bagel,4,"My everything bagel was toasted perfectly.",positive
+44,2026-09-10,Bagel,5,"The bagel was still warm and tasted great with the chive spread.",positive
+45,2026-08-10,Bagel,4,"I loved the generous poppy seed topping.",positive
+46,2026-11-11,Bagel,3,"They served the plain bagel sliced in two.",neutral
+47,2026-10-16,Bagel,3,"The bagel was filling, though the flavor was forgettable.",neutral
+48,2026-09-11,Bagel,3,"I liked the spread but the bagel was a little tough.",neutral
+49,2026-08-11,Bagel,1,"It was so dry that I could not finish it.",negative
+50,2026-10-17,Bagel,2,"The kitchen sent a plain bagel after I ordered sesame.",negative
+51,2026-09-12,Matcha,4,"The matcha tasted grassy and fresh without being bitter.",positive
+52,2026-08-12,Matcha,5,"It was whisked well, with a silky finish.",positive
+53,2026-11-12,Matcha,4,"I enjoyed the earthy flavor and light sweetness.",positive
+54,2026-10-18,Matcha,5,"The iced matcha was balanced, smooth, and worth the price.",positive
+55,2026-09-13,Matcha,4,"I was worried it would be too sweet, but it was just right.",positive
+56,2026-08-13,Matcha,3,"The drink came unsweetened, as listed on the menu.",neutral
+57,2026-11-13,Matcha,3,"The matcha was stronger than the latte and lighter than the espresso.",neutral
+58,2026-08-14,Matcha,2,"The powder collected in lumps at the bottom.",negative
+59,2026-09-14,Matcha,1,"It tasted mostly like sugar with barely any tea flavor.",negative
+60,2026-10-19,Matcha,2,"Great, a lovely green drink that tastes just like dishwater.",negative
+61,2026-10-20,Muffin,4,"The blueberry muffin had real berries in every bite.",positive
+62,2026-09-15,Muffin,5,"I loved the moist center and crunchy sugar topping.",positive
+63,2026-08-15,Muffin,4,"The lemon muffin smelled fresh and had a bright flavor.",positive
+64,2026-11-14,Muffin,5,"It was still warm and the chocolate pieces were melting.",positive
+65,2026-10-21,Muffin,4,"I would come back just for the banana muffin.",positive
+66,2026-09-16,Muffin,3,"The muffin came wrapped in a paper sleeve.",neutral
+67,2026-08-16,Muffin,3,"It had some blueberries and was about the size I expected.",neutral
+68,2026-11-15,Muffin,3,"The cake was a bit dense, but the topping was nice.",neutral
+69,2026-10-22,Muffin,1,"The muffin was hard enough to crumble into dust.",negative
+70,2026-10-23,Muffin,2,"Wonderful, another blueberry muffin with exactly one blueberry.",negative
+71,2026-11-16,Sandwich,4,"The turkey sandwich was fresh, crisp, and packed with filling.",positive
+72,2026-10-24,Sandwich,5,"I loved the peppery greens and the warm sourdough.",positive
+73,2026-09-17,Sandwich,3,"It came with a small bag of chips and a pickle.",neutral
+74,2026-10-25,Sandwich,2,"The chicken sandwich was cold in the middle.",negative
+75,2026-10-26,Sandwich,1,"The bread was soggy and the filling was bland.",negative
+76,2026-10-27,Sandwich,2,"I found an unripe tomato stem in the middle of my sandwich.",negative
+77,2026-10-28,Sandwich,1,"The sandwich was supposed to have avocado, but it was missing.",negative
+78,2026-10-29,Sandwich,2,"The new kitchen crew gave me the wrong sandwich twice.",negative
+79,2026-10-30,Sandwich,1,"Great, another twenty-minute wait for a sandwich.",negative
+80,2026-10-31,Sandwich,2,"The new staff forgot to toast it, and the cheese was still cold.",negative

@@ -1,0 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+-e .
+pandas>=2.2,<3
+numpy>=1.26,<3
+torch==2.8.0+cpu
+transformers>=4.53,<5
+matplotlib>=3.9,<4
+streamlit>=1.45,<2
+pytest>=8,<10
+ruff>=0.11,<1
