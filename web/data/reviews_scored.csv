@@ -1,0 +1,81 @@
+review_id,date,product,rating,review_text,true_label,sentiment,confidence
+1,2026-08-01,Latte,4,Silky milk and a deep espresso flavor. I would order it again.,positive,positive,0.8149159550666809
+2,2026-11-01,Latte,5,Lovely foam and exactly the right temperature.,positive,positive,0.9768437743186951
+3,2026-10-01,Latte,4,The barista made it with oat milk and it tasted excellent.,positive,positive,0.9751157760620117
+4,2026-09-01,Latte,5,The vanilla latte was subtle and wonderfully smooth.,positive,positive,0.9638130068778992
+5,2026-08-02,Latte,4,I did not expect to love the lavender flavor this much.,positive,positive,0.8755073547363281
+6,2026-11-02,Latte,3,It tasted like the latte I usually get here.,neutral,neutral,0.7801699638366699
+7,2026-10-02,Latte,3,The milk and espresso were both noticeable.,neutral,neutral,0.8062214851379395
+8,2026-09-02,Latte,3,"It was a standard latte, about what I expected.",neutral,neutral,0.8453555107116699
+9,2026-08-03,Latte,1,The milk tasted scorched and left a bitter aftertaste.,negative,negative,0.8390355110168457
+10,2026-10-03,Latte,2,This was lukewarm by the time it reached the table.,negative,negative,0.6770599484443665
+11,2026-09-03,Espresso,4,A bright shot with a pleasant orange finish.,positive,positive,0.946256697177887
+12,2026-08-04,Espresso,5,It was rich without the harsh bite I sometimes get.,positive,positive,0.5126497149467468
+13,2026-11-03,Espresso,4,The double shot was balanced and beautifully pulled.,positive,positive,0.861553966999054
+14,2026-10-04,Espresso,5,A lovely little espresso. The crema stayed until the last sip.,positive,positive,0.9696757793426514
+15,2026-09-04,Espresso,4,The chocolate notes came through clearly. Excellent.,positive,positive,0.9700605273246765
+16,2026-08-05,Espresso,3,The single shot came in a small ceramic cup.,neutral,neutral,0.8988538980484009
+17,2026-11-04,Espresso,3,I ordered it after lunch. It was a typical espresso.,neutral,neutral,0.8575761318206787
+18,2026-10-05,Espresso,3,It was neither particularly strong nor particularly mild.,neutral,neutral,0.5883129835128784
+19,2026-09-05,Espresso,1,The shot was sour and watery.,negative,negative,0.807894229888916
+20,2026-10-06,Espresso,2,My espresso tasted like burnt rubber.,negative,negative,0.8248341679573059
+21,2026-10-07,Cold Brew,4,"Clean and refreshing, even after the ice melted.",positive,positive,0.8951419591903687
+22,2026-09-06,Cold Brew,5,The cold brew was smooth with a lovely cocoa finish.,positive,positive,0.9617777466773987
+23,2026-08-06,Cold Brew,4,Finally found a cold brew that I enjoy without sugar.,positive,positive,0.8460753560066223
+24,2026-11-05,Cold Brew,5,"It was cold, strong, and exactly what I wanted on a hot afternoon.",positive,positive,0.5892497301101685
+25,2026-10-08,Cold Brew,4,I liked the rounded flavor and would buy another bottle.,positive,positive,0.9456923604011536
+26,2026-09-07,Cold Brew,3,It was served black in a tall glass with ice.,neutral,neutral,0.9329496026039124
+27,2026-08-07,Cold Brew,3,The cold brew was fairly ordinary for the price.,neutral,neutral,0.630998432636261
+28,2026-11-06,Cold Brew,3,"The drink was strong, which may suit some people.",neutral,positive,0.700819730758667
+29,2026-10-09,Cold Brew,1,My cold brew tasted stale before I even added milk.,negative,negative,0.8411765694618225
+30,2026-10-10,Cold Brew,2,There was so much ice that I barely got any coffee.,negative,negative,0.7971200346946716
+31,2026-11-07,Croissant,4,The croissant shattered into buttery flakes. It was delicious.,positive,positive,0.9760396480560303
+32,2026-10-11,Croissant,5,It tasted fresh from the oven and the center was beautifully soft.,positive,positive,0.97651606798172
+33,2026-09-08,Croissant,4,The almond filling was generous and pleasantly nutty.,positive,positive,0.9568856358528137
+34,2026-08-08,Croissant,5,I loved the crisp edges and delicate layers.,positive,positive,0.9623266458511353
+35,2026-11-08,Croissant,4,This was the best plain croissant I have had all month.,positive,positive,0.9859666228294373
+36,2026-10-12,Croissant,3,It was a regular-sized croissant served on a plate.,neutral,neutral,0.9133228063583374
+37,2026-09-09,Croissant,3,There was nothing unusual about the texture or flavor.,neutral,neutral,0.7204460501670837
+38,2026-10-13,Croissant,2,The pastry was dry and tasted like it was baked yesterday.,negative,negative,0.7517779469490051
+39,2026-11-09,Croissant,1,My chocolate croissant was burnt underneath.,negative,negative,0.8468555212020874
+40,2026-10-14,Croissant,2,The middle was raw and sticky.,negative,negative,0.7042147517204285
+41,2026-08-09,Bagel,4,The sesame bagel had a great chew and a crisp outside.,positive,positive,0.9707395434379578
+42,2026-11-10,Bagel,5,The cream cheese was fresh and spread all the way to the edges.,positive,positive,0.6522212624549866
+43,2026-10-15,Bagel,4,My everything bagel was toasted perfectly.,positive,positive,0.9724108576774597
+44,2026-09-10,Bagel,5,The bagel was still warm and tasted great with the chive spread.,positive,positive,0.9645981192588806
+45,2026-08-10,Bagel,4,I loved the generous poppy seed topping.,positive,positive,0.9753044247627258
+46,2026-11-11,Bagel,3,They served the plain bagel sliced in two.,neutral,neutral,0.9156025052070618
+47,2026-10-16,Bagel,3,"The bagel was filling, though the flavor was forgettable.",neutral,neutral,0.4487396478652954
+48,2026-09-11,Bagel,3,I liked the spread but the bagel was a little tough.,neutral,positive,0.6154637336730957
+49,2026-08-11,Bagel,1,It was so dry that I could not finish it.,negative,negative,0.886105477809906
+50,2026-10-17,Bagel,2,The kitchen sent a plain bagel after I ordered sesame.,negative,neutral,0.8585216403007507
+51,2026-09-12,Matcha,4,The matcha tasted grassy and fresh without being bitter.,positive,positive,0.7512058615684509
+52,2026-08-12,Matcha,5,"It was whisked well, with a silky finish.",positive,positive,0.592323899269104
+53,2026-11-12,Matcha,4,I enjoyed the earthy flavor and light sweetness.,positive,positive,0.9549633264541626
+54,2026-10-18,Matcha,5,"The iced matcha was balanced, smooth, and worth the price.",positive,positive,0.9257165193557739
+55,2026-09-13,Matcha,4,"I was worried it would be too sweet, but it was just right.",positive,positive,0.6839644312858582
+56,2026-08-13,Matcha,3,"The drink came unsweetened, as listed on the menu.",neutral,neutral,0.9379616975784302
+57,2026-11-13,Matcha,3,The matcha was stronger than the latte and lighter than the espresso.,neutral,positive,0.6742079854011536
+58,2026-08-14,Matcha,2,The powder collected in lumps at the bottom.,negative,neutral,0.8746622800827026
+59,2026-09-14,Matcha,1,It tasted mostly like sugar with barely any tea flavor.,negative,negative,0.8075621724128723
+60,2026-10-19,Matcha,2,"Great, a lovely green drink that tastes just like dishwater.",negative,positive,0.978733479976654
+61,2026-10-20,Muffin,4,The blueberry muffin had real berries in every bite.,positive,neutral,0.5799383521080017
+62,2026-09-15,Muffin,5,I loved the moist center and crunchy sugar topping.,positive,positive,0.972200334072113
+63,2026-08-15,Muffin,4,The lemon muffin smelled fresh and had a bright flavor.,positive,positive,0.963154673576355
+64,2026-11-14,Muffin,5,It was still warm and the chocolate pieces were melting.,positive,neutral,0.7018579840660095
+65,2026-10-21,Muffin,4,I would come back just for the banana muffin.,positive,positive,0.7357057332992554
+66,2026-09-16,Muffin,3,The muffin came wrapped in a paper sleeve.,neutral,neutral,0.9171226620674133
+67,2026-08-16,Muffin,3,It had some blueberries and was about the size I expected.,neutral,neutral,0.555950403213501
+68,2026-11-15,Muffin,3,"The cake was a bit dense, but the topping was nice.",neutral,positive,0.8659593462944031
+69,2026-10-22,Muffin,1,The muffin was hard enough to crumble into dust.,negative,negative,0.5006652474403381
+70,2026-10-23,Muffin,2,"Wonderful, another blueberry muffin with exactly one blueberry.",negative,positive,0.9837995767593384
+71,2026-11-16,Sandwich,4,"The turkey sandwich was fresh, crisp, and packed with filling.",positive,positive,0.8401305079460144
+72,2026-10-24,Sandwich,5,I loved the peppery greens and the warm sourdough.,positive,positive,0.9789319634437561
+73,2026-09-17,Sandwich,3,It came with a small bag of chips and a pickle.,neutral,neutral,0.7879157662391663
+74,2026-10-25,Sandwich,2,The chicken sandwich was cold in the middle.,negative,negative,0.5541279911994934
+75,2026-10-26,Sandwich,1,The bread was soggy and the filling was bland.,negative,negative,0.9071316123008728
+76,2026-10-27,Sandwich,2,I found an unripe tomato stem in the middle of my sandwich.,negative,neutral,0.5572156310081482
+77,2026-10-28,Sandwich,1,"The sandwich was supposed to have avocado, but it was missing.",negative,negative,0.5667886734008789
+78,2026-10-29,Sandwich,2,The new kitchen crew gave me the wrong sandwich twice.,negative,negative,0.9046428799629211
+79,2026-10-30,Sandwich,1,"Great, another twenty-minute wait for a sandwich.",negative,negative,0.7592572569847107
+80,2026-10-31,Sandwich,2,"The new staff forgot to toast it, and the cheese was still cold.",negative,negative,0.7612622976303101
