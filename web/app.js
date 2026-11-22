@@ -2,7 +2,7 @@
 // and has a free field to classify one review or add it to the dataset.
 
 const LABELS = ["positive", "neutral", "negative"];
-const NO_SERVER = "Start the server first: python -m sentiment_analyzer.server";
+const NO_SERVER = "Saved report. To classify reviews, run: python -m sentiment_analyzer.server";
 const $ = (id) => document.getElementById(id);
 let current = null; // the report on screen, to show what changed after "Add to dataset"
 
@@ -76,10 +76,14 @@ async function post(url, data) {
   return answer;
 }
 
+// Without the Python server (e.g. GitHub Pages) the model cannot run.
+function showNoServer() {
+  $("status").textContent = NO_SERVER;
+}
+
 function showError(error) {
-  $("status").textContent = error instanceof TypeError || error instanceof SyntaxError
-    ? NO_SERVER
-    : error.message;
+  if (error instanceof TypeError || error instanceof SyntaxError) showNoServer();
+  else $("status").textContent = error.message;
 }
 
 // "Classify": only ask the model about this one review.
@@ -118,8 +122,8 @@ $("add").addEventListener("click", async () => {
 fetch("api/report")
   .then((response) => response.json())
   .catch(() => {
-    $("status").textContent = NO_SERVER;
+    showNoServer();
     return fetch("data/report.json").then((response) => response.json());
   })
   .then(show)
-  .catch(() => ($("status").textContent = NO_SERVER));
+  .catch(showNoServer);

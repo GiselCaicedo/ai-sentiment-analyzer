@@ -1,15 +1,7 @@
----
-title: AI Sentiment Analyzer
-emoji: ☕
-colorFrom: yellow
-colorTo: green
-sdk: docker
-app_port: 8000
-pinned: false
-short_description: Classify café reviews with a pretrained RoBERTa model
----
-
 # AI Sentiment Analyzer — Project 19
+
+Saved report online: https://giselcaicedo.github.io/ai-sentiment-analyzer/
+(the buttons need the local server, see **Run it**).
 
 Classifies customer reviews of a coffee shop (Bean & Leaf) as **positive, neutral or negative** with a
 pretrained Hugging Face model, counts the results with **Pandas**, and writes a feedback report.
