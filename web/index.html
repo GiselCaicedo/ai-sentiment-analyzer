@@ -4,20 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sentiment Analyzer | Bean &amp; Leaf</title>
-  <link rel="stylesheet" href="styles.css?v=5">
-  <script type="module" src="app.js?v=5"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap">
+  <link rel="stylesheet" href="styles.css?v=6">
+  <script type="module" src="app.js?v=6"></script>
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <p class="brand">Bean &amp; Leaf</p>
+  <main>
+    <header>
+      <p class="brand">Bean &amp; Leaf · customer feedback</p>
       <h1>Customer sentiment</h1>
-    </div>
-  </header>
+    </header>
 
-  <main class="wrap">
     <!-- Free field: classify one review, or add it to the dataset -->
-    <form id="form" class="card try">
+    <form id="form">
       <label for="review">Write a review</label>
       <textarea id="review" rows="3" placeholder="The croissant was amazing."></textarea>
       <div class="actions">
@@ -31,23 +32,18 @@
     <!-- Dataset report: filled in by app.js -->
     <section id="results" hidden>
       <div class="stats" id="stats"></div>
-      <div class="card">
-        <h2>Overall</h2>
-        <div id="bars"></div>
-      </div>
 
-      <div class="card">
-        <h2>By product</h2>
-        <table id="products"></table>
-      </div>
+      <h2>Overall</h2>
+      <div id="bars"></div>
 
-      <div class="card">
-        <div class="row">
-          <h2>Reviews</h2>
-          <a id="download" class="button" download="feedback_report.md">Download report</a>
-        </div>
-        <div class="scroll"><table id="table"></table></div>
+      <h2>By product</h2>
+      <table id="products"></table>
+
+      <div class="row">
+        <h2>Reviews</h2>
+        <a id="download" download="feedback_report.md">Download report ↓</a>
       </div>
+      <div class="scroll"><table id="table"></table></div>
     </section>
   </main>
 </body>
