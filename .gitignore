@@ -8,3 +8,4 @@ __pycache__/
 .env
 *.safetensors
 pytorch_model.bin
+presentation/gate_result.json
