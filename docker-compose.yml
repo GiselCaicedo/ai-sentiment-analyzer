@@ -1,30 +1,11 @@
-# Análisis de sentimiento (Bean & Leaf).
-#   docker compose up --build
-#     sitio   → http://localhost:8090   (reporte estático, arranca al instante)
-#     app     → http://localhost:8501   (Streamlit; la 1.ª vez descarga el modelo ~500 MB)
-#
-# Para levantar solo el sitio (rápido):  docker compose up --build sitio
-name: genai-sentiment
-
+# docker compose up --build   ->  http://localhost:8000
 services:
-  sitio:
-    build:
-      context: .
-      dockerfile: Dockerfile.sitio
-    restart: unless-stopped
-    ports:
-      - "8090:80"
-
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile.streamlit
-    restart: unless-stopped
+    build: .
     ports:
-      - "8501:8501"
+      - "8000:8000"
     volumes:
-      # Guarda el modelo descargado entre reinicios (evita bajarlo cada vez).
-      - modelos:/modelos
+      - models:/models   # keeps the downloaded model between runs
 
 volumes:
-  modelos:
+  models:

@@ -1,175 +1,121 @@
-import { labels, renderMonthlyChart, renderProductChart, renderSentimentChart } from "./charts.js";
+// The page shows the report of the dataset (data/sample_reviews.csv)
+// and has a free field to classify one review or add it to the dataset.
 
-const id = name => document.getElementById(name);
-const titleCase = label => label[0].toUpperCase() + label.slice(1);
-const pct = new Intl.NumberFormat("en", { style: "percent", maximumFractionDigits: 2 });
-const monthFormat = new Intl.DateTimeFormat("en", { month: "short", year: "numeric", timeZone: "UTC" });
-const monthName = month => monthFormat.format(new Date(month + "-01T00:00:00Z"));
+const LABELS = ["positive", "neutral", "negative"];
+const NO_SERVER = "Start the server first: python -m sentiment_analyzer.server";
+const $ = (id) => document.getElementById(id);
 
-function element(tag, text, className) {
-  const node = document.createElement(tag);
-  if (text !== undefined) node.textContent = text;
-  if (className) node.className = className;
-  return node;
-}
-
-function tableRow(values, headers = false) {
-  const row = document.createElement("tr");
-  values.forEach((value, i) => {
-    const cell = element(headers || i === 0 ? "th" : "td", value);
-    if (headers) cell.scope = "col";
-    else if (i === 0) cell.scope = "row";
-    row.append(cell);
-  });
-  return row;
-}
-
-function renderSummary(report) {
-  const stats = [
-    ["Reviews analyzed", report.total_reviews, ""],
-    ...labels.map(label => [
-      titleCase(label), pct.format(report.percentages[label] / 100), label,
-    ]),
-    ["Model accuracy", pct.format(report.evaluation.accuracy), ""],
-  ];
-  for (const [label, value, sentiment] of stats) {
-    const group = element("div", undefined, sentiment ? "stat " + sentiment : "stat");
-    group.append(element("dt", label), element("dd", value));
-    id("summary").append(group);
+// Build an HTML table from a header row and data rows (textContent avoids injecting HTML).
+function fillTable(table, header, rows) {
+  table.replaceChildren();
+  for (const [i, values] of [header, ...rows].entries()) {
+    const tr = table.insertRow();
+    for (const value of values) {
+      const cell = document.createElement(i === 0 ? "th" : "td");
+      cell.textContent = value;
+      tr.append(cell);
+    }
   }
 }
 
-function renderQuotes(report, sentiment) {
-  const group = id("quotes-" + sentiment);
-  const reviews = new Map(report.reviews.map(review => [review.review_id, review]));
-  const quotes = report["top_" + sentiment];
-  if (!quotes.length) group.append(element("p", "No reviews in this class.", "muted"));
-  for (const item of quotes) {
-    const record = reviews.get(item.review_id);
-    const quote = element("figure", undefined, "quote");
-    quote.append(element("blockquote", "“" + item.text + "”"));
-    const disagreement = record.true_label !== sentiment ? " · Hand label: " + record.true_label : "";
-    quote.append(element("figcaption",
-      record.product + " · " + pct.format(item.confidence) + " confidence" + disagreement,
-    ));
-    group.append(quote);
-  }
-}
+// Draw the dataset report sent by the server (same shape as data/report.json).
+function show(report) {
+  $("source").textContent = "Dataset: data/sample_reviews.csv · " + report.total + " reviews";
 
-function renderEvaluation(report) {
-  const evaluation = report.evaluation;
-  const mistakes = evaluation.misclassified;
-  const correct = report.total_reviews - mistakes.length;
-  id("evaluation-line").textContent = correct + " of " + report.total_reviews + " predictions matched the hand labels.";
-  const low = report.reviews.filter(review => review.rating <= 2).length;
-  id("rating-insight").textContent = low
-    ? pct.format(report.rating_mismatch_pct / 100) + " of 1–2 star reviews were predicted positive or neutral."
-    : "This sample has no 1–2 star reviews.";
-
-  const matrix = evaluation.confusion_matrix;
-  id("matrix").tHead.append(tableRow(["Hand label", ...matrix.labels.map(titleCase)], true));
-  matrix.matrix.forEach((values, i) => {
-    const row = tableRow([titleCase(matrix.labels[i]), ...values]);
-    row.cells[i + 1].classList.add("match");
-    id("matrix").tBodies[0].append(row);
-  });
-  if (!mistakes.length) id("misclassified").append(element("li", "Every prediction matched its hand label."));
-  for (const review of mistakes) {
-    const item = element("li");
-    item.append(
-      element("p", "“" + review.text + "”"),
-      element("span", review.product + " · " + titleCase(review.true_label) + " → " + titleCase(review.sentiment), "muted"),
-    );
-    id("misclassified").append(item);
-  }
-}
-
-function renderReviews(report) {
-  const query = id("filter-query");
-  const sentiment = id("filter-sentiment");
-  const product = id("filter-product");
-  const form = id("filters");
-
-  for (const label of labels) sentiment.add(new Option(titleCase(label), label));
-  for (const row of report.by_product) product.add(new Option(row.product, row.product));
-
-  function update() {
-    const term = query.value.trim().toLowerCase();
-    const filtered = report.reviews.filter(review =>
-      (!sentiment.value || review.sentiment === sentiment.value)
-      && (!product.value || review.product === product.value)
-      && review.text.toLowerCase().includes(term),
-    );
-    const rows = filtered.map(review => {
-      const row = tableRow([
-        review.text, review.product, review.rating + "/5", titleCase(review.sentiment),
-        pct.format(review.confidence), titleCase(review.true_label), review.date,
-      ]);
-      row.cells[3].classList.add("sentiment-text", review.sentiment);
-      return row;
-    });
-    id("reviews-body").replaceChildren(...rows);
-    id("review-status").textContent = filtered.length
-      ? filtered.length + " of " + report.total_reviews + " reviews"
-      : "No reviews match these filters.";
-  }
-  query.addEventListener("input", update);
-  product.addEventListener("change", update);
-  sentiment.addEventListener("change", update);
-  form.addEventListener("submit", event => event.preventDefault());
-  form.addEventListener("reset", () => {
-    requestAnimationFrame(() => {
-      update();
-      query.focus();
-    });
-  });
-  update();
-}
-
-function render(report) {
-  renderSummary(report);
-  renderSentimentChart(id("sentiment-chart"), report.counts);
-  const products = [...report.by_product].sort((a, b) => b.negative - a.negative || a.product.localeCompare(b.product));
-  renderProductChart(id("product-chart"), products);
-  const mostNegative = products[0];
-  if (mostNegative?.negative) {
-    const total = labels.reduce((sum, label) => sum + mostNegative[label], 0);
-    id("product-insight").textContent =
-      mostNegative.negative + " of " + total + " reviews for " + mostNegative.product + " were classified as negative.";
-  } else {
-    id("product-insight").textContent = "No reviews were classified as negative.";
+  // Number cards: total, % per sentiment, accuracy.
+  const cards = [["Reviews", report.total, ""]];
+  for (const label of LABELS) cards.push([label, report.percentages[label] + "%", label]);
+  cards.push(["Accuracy", report.accuracy + "%", ""]);
+  $("stats").replaceChildren();
+  for (const [name, value, color] of cards) {
+    const card = document.createElement("div");
+    card.className = "stat " + color;
+    card.innerHTML = "<strong></strong><span></span>";
+    card.querySelector("strong").textContent = value;
+    card.querySelector("span").textContent = name;
+    $("stats").append(card);
   }
 
-  const months = report.monthly;
-  renderMonthlyChart(id("monthly-chart"), months);
-  const peak = months.reduce((best, row) => row.negative > best.negative ? row : best);
-  id("trend-insight").textContent = peak.negative
-    ? monthName(peak.month) + " had " + peak.negative + " negative reviews, the most in the sample."
-    : "No negative reviews across the months shown.";
-  for (const row of months) {
-    id("months").tBodies[0].append(tableRow([monthName(row.month), ...labels.map(label => row[label])]));
+  // Bars: the width of each bar is its percentage.
+  $("bars").replaceChildren();
+  for (const label of LABELS) {
+    const row = document.createElement("div");
+    row.className = "bar " + label;
+    row.innerHTML = "<span></span><div><i></i></div><b></b>";
+    row.querySelector("span").textContent = label;
+    row.querySelector("i").style.width = report.percentages[label] + "%";
+    row.querySelector("b").textContent = report.counts[label];
+    $("bars").append(row);
   }
-  const first = monthName(months[0].month);
-  const last = monthName(months.at(-1).month);
-  id("period").textContent = first === last ? first : first + " – " + last;
 
-  renderQuotes(report, "positive");
-  renderQuotes(report, "negative");
-  renderEvaluation(report);
-  renderReviews(report);
-  id("model-link").textContent = report.model.split("/").at(-1);
-  id("generated").textContent = "Generated " + new Intl.DateTimeFormat("en", {
-    dateStyle: "long", timeZone: "UTC",
-  }).format(new Date(report.generated_at)) + " (UTC)";
+  // Table by product, and the product list for the free field.
+  const products = report.by_product.map((p) => p.product);
+  fillTable($("products"), ["Product", "Positive", "Neutral", "Negative"],
+    report.by_product.map((p) => [p.product, p.positive, p.neutral, p.negative]));
+  $("product").replaceChildren(...products.map((name) => new Option(name)));
+
+  // Every review with the model's answer, newest first.
+  const rows = report.reviews.toReversed().map((r) => [
+    r.review_text, r.product, r.sentiment, Math.round(r.confidence * 100) + "%",
+  ]);
+  fillTable($("table"), ["Review", "Product", "Sentiment", "Confidence"], rows);
+  for (const tr of $("table").rows) tr.cells[2].className = tr.cells[2].textContent;
+
+  // Download button: turns the Markdown text into a file.
+  $("download").href = URL.createObjectURL(new Blob([report.markdown], { type: "text/markdown" }));
+  $("results").hidden = false;
 }
 
-try {
-  const response = await fetch("data/report.json");
-  if (!response.ok) throw new Error("Report request returned " + response.status);
-  render(await response.json());
-  id("report").hidden = false;
-} catch {
-  id("load-error").textContent = "The report could not be loaded. Refresh the page to try again.";
-} finally {
-  id("loading").hidden = true;
+// Send JSON to the server and return its answer (or throw its error message).
+async function post(url, data) {
+  const response = await fetch(url, { method: "POST", body: JSON.stringify(data) });
+  const answer = await response.json();
+  if (!response.ok) throw new Error(answer.error);
+  return answer;
 }
+
+function showError(error) {
+  $("status").textContent = error instanceof TypeError || error instanceof SyntaxError
+    ? NO_SERVER
+    : error.message;
+}
+
+// "Classify": only ask the model about this one review.
+$("form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  $("status").textContent = "Classifying…";
+  try {
+    const result = await post("api/classify", { text: $("review").value });
+    $("status").innerHTML = "<b></b> · <span></span> confidence";
+    $("status").querySelector("b").textContent = result.sentiment;
+    $("status").querySelector("b").className = result.sentiment;
+    $("status").querySelector("span").textContent = Math.round(result.confidence * 100) + "%";
+  } catch (error) {
+    showError(error);
+  }
+});
+
+// "Add to dataset": save it in the CSV and redraw the whole report.
+$("add").addEventListener("click", async () => {
+  $("status").textContent = "Adding and re-analyzing the dataset…";
+  try {
+    const report = await post("api/add", { text: $("review").value, product: $("product").value });
+    show(report);
+    const added = report.reviews.at(-1);
+    $("status").textContent = "Added as " + added.sentiment + ". The dataset now has " + report.total + " reviews.";
+    $("review").value = "";
+  } catch (error) {
+    showError(error);
+  }
+});
+
+// On page load: the server analyzes the dataset in data/.
+// Without a server (GitHub Pages) show the last saved report instead.
+fetch("api/report")
+  .then((response) => response.json())
+  .catch(() => {
+    $("status").textContent = NO_SERVER;
+    return fetch("data/report.json").then((response) => response.json());
+  })
+  .then(show)
+  .catch(() => ($("status").textContent = NO_SERVER));

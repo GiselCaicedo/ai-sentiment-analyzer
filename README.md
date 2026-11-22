@@ -1,51 +1,34 @@
 # AI Sentiment Analyzer — Project 19
 
-A coffee shop (Bean & Leaf) wants to know whether its customer reviews are positive, negative or neutral.
-This project classifies them with a **pretrained Hugging Face Transformers model** and summarizes the
-results with **Pandas** into a customer feedback analysis report.
+Classifies customer reviews of a coffee shop (Bean & Leaf) as **positive, neutral or negative** with a
+pretrained Hugging Face model, counts the results with **Pandas**, and writes a feedback report.
 
-- **Model:** [`cardiffnlp/twitter-roberta-base-sentiment-latest`](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest) (RoBERTa, 3 classes), run locally on CPU. No API keys.
-- **Data:** 80 English reviews of 8 products in [`data/sample_reviews.csv`](data/sample_reviews.csv), each with a human label to measure accuracy.
-- **Result:** 41 positive · 21 neutral · 18 negative, 86.2 % accuracy vs. human labels.
+- **Model:** [`cardiffnlp/twitter-roberta-base-sentiment-latest`](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest), runs on CPU, no API keys.
+- **Data:** 80 sample reviews in [`data/sample_reviews.csv`](data/sample_reviews.csv), each with a human label.
+- **Result:** 41 positive · 21 neutral · 18 negative · 86.2 % accuracy against the human labels.
 
-## Where each student task happens
+## The code (two files)
 
-| Task | Code | Also shown in |
-|------|------|---------------|
-| Load sample reviews | [`data_loader.py`](src/sentiment_analyzer/data_loader.py) | Notebook § 1 |
-| Use a pretrained sentiment model | [`classifier.py`](src/sentiment_analyzer/classifier.py) (`transformers.pipeline`) | Notebook § 2 |
-| Classify each review | [`classifier.py`](src/sentiment_analyzer/classifier.py) (`score_reviews`) | Notebook § 3 |
-| Calculate sentiment counts with Pandas | [`analysis.py`](src/sentiment_analyzer/analysis.py) (`value_counts`, `crosstab`, `groupby`) | Notebook § 4 |
-| **Expected output:** feedback report | [`report.py`](src/sentiment_analyzer/report.py) → [`reports/feedback_report.md`](reports/feedback_report.md) | Notebook, web site |
+| File | What it does |
+|------|--------------|
+| [`analyzer.py`](src/sentiment_analyzer/analyzer.py) | The four tasks: `load_reviews` → `get_model` → `classify` → `summarize`, plus `to_markdown` for the report and `add_review` |
+| [`server.py`](src/sentiment_analyzer/server.py) | Serves the web page: `GET /api/report`, `POST /api/classify`, `POST /api/add` |
+| [`web/`](web/) | The page: the dataset report, plus a free field to **Classify** one review or **Add to dataset** |
 
-## Four ways to see it run
-
-1. **Notebook (step by step, with outputs):** [`notebooks/sentiment_analysis.ipynb`](notebooks/sentiment_analysis.ipynb).
-   It is saved already executed, so it can be read on GitHub without running anything.
-2. **Full pipeline:** scores every review with the model and regenerates the report, JSON, CSV and charts.
-   ```bash
-   python -m sentiment_analyzer.cli --input data/sample_reviews.csv --out web/data
-   ```
-3. **One review from the terminal:**
-   ```bash
-   python -m sentiment_analyzer.classify_cli "The coffee was cold and the staff ignored me."
-   ```
-4. **Live demo (Streamlit):** type a review or upload a CSV and the model classifies it in real time.
-   ```bash
-   streamlit run app/streamlit_app.py
-   ```
-
-The static site in [`web/`](web/) is the published report: it shows the results the model produced
-(`web/data/report.json`). GitHub Pages only serves static files, so the model itself runs in the
-pipeline, the notebook and the Streamlit app.
-
-## Setup
+## Run it
 
 ```bash
 python -m venv .venv && .venv\Scripts\activate      # macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
-pytest
+
+python -m sentiment_analyzer.server     # web app → http://localhost:8000
+python -m sentiment_analyzer.analyzer   # rebuild web/data/report.json and reports/feedback_report.md
+pytest                                  # tests (use a fake model, no download)
 ```
 
-The first run downloads the model (~500 MB); after that it is cached. With Docker:
-`docker compose up --build` (site on http://localhost:8090, Streamlit on http://localhost:8501).
+Step by step with outputs: [`notebooks/sentiment_analysis.ipynb`](notebooks/sentiment_analysis.ipynb).
+With Docker: `docker compose up --build`, then open http://localhost:8000.
+The first run downloads the model (~500 MB).
+
+On GitHub Pages the page shows the saved report; the buttons need the local server.
+Reviews added from the page are appended to `data/sample_reviews.csv` (`git checkout data/sample_reviews.csv` restores it).

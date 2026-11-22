@@ -79,3 +79,4 @@ review_id,date,product,rating,review_text,true_label
 78,2026-10-29,Sandwich,2,"The new kitchen crew gave me the wrong sandwich twice.",negative
 79,2026-10-30,Sandwich,1,"Great, another twenty-minute wait for a sandwich.",negative
 80,2026-10-31,Sandwich,2,"The new staff forgot to toast it, and the cheese was still cold.",negative
+81,2026-11-22,Bagel,,The croissant was amazing,

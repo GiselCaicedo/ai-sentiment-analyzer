@@ -1,23 +1,817 @@
 {
-  "generated_at": "2026-11-22T13:24:40+00:00",
-  "model": "cardiffnlp/twitter-roberta-base-sentiment-latest",
-  "total_reviews": 80,
-  "rows_dropped": 0,
+  "total": 80,
   "counts": {
     "positive": 41,
     "neutral": 21,
     "negative": 18
   },
   "percentages": {
-    "positive": 51.25,
-    "neutral": 26.25,
+    "positive": 51.2,
+    "neutral": 26.2,
     "negative": 22.5
   },
-  "avg_confidence": {
-    "positive": 0.871088,
-    "neutral": 0.767128,
-    "negative": 0.763195
-  },
+  "reviews": [
+    {
+      "review_id": 1,
+      "date": "2026-08-01",
+      "product": "Latte",
+      "rating": 4,
+      "review_text": "Silky milk and a deep espresso flavor. I would order it again.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.815
+    },
+    {
+      "review_id": 2,
+      "date": "2026-11-01",
+      "product": "Latte",
+      "rating": 5,
+      "review_text": "Lovely foam and exactly the right temperature.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.977
+    },
+    {
+      "review_id": 3,
+      "date": "2026-10-01",
+      "product": "Latte",
+      "rating": 4,
+      "review_text": "The barista made it with oat milk and it tasted excellent.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.975
+    },
+    {
+      "review_id": 4,
+      "date": "2026-09-01",
+      "product": "Latte",
+      "rating": 5,
+      "review_text": "The vanilla latte was subtle and wonderfully smooth.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.964
+    },
+    {
+      "review_id": 5,
+      "date": "2026-08-02",
+      "product": "Latte",
+      "rating": 4,
+      "review_text": "I did not expect to love the lavender flavor this much.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.876
+    },
+    {
+      "review_id": 6,
+      "date": "2026-11-02",
+      "product": "Latte",
+      "rating": 3,
+      "review_text": "It tasted like the latte I usually get here.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.78
+    },
+    {
+      "review_id": 7,
+      "date": "2026-10-02",
+      "product": "Latte",
+      "rating": 3,
+      "review_text": "The milk and espresso were both noticeable.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.806
+    },
+    {
+      "review_id": 8,
+      "date": "2026-09-02",
+      "product": "Latte",
+      "rating": 3,
+      "review_text": "It was a standard latte, about what I expected.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.845
+    },
+    {
+      "review_id": 9,
+      "date": "2026-08-03",
+      "product": "Latte",
+      "rating": 1,
+      "review_text": "The milk tasted scorched and left a bitter aftertaste.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.839
+    },
+    {
+      "review_id": 10,
+      "date": "2026-10-03",
+      "product": "Latte",
+      "rating": 2,
+      "review_text": "This was lukewarm by the time it reached the table.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.677
+    },
+    {
+      "review_id": 11,
+      "date": "2026-09-03",
+      "product": "Espresso",
+      "rating": 4,
+      "review_text": "A bright shot with a pleasant orange finish.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.946
+    },
+    {
+      "review_id": 12,
+      "date": "2026-08-04",
+      "product": "Espresso",
+      "rating": 5,
+      "review_text": "It was rich without the harsh bite I sometimes get.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.513
+    },
+    {
+      "review_id": 13,
+      "date": "2026-11-03",
+      "product": "Espresso",
+      "rating": 4,
+      "review_text": "The double shot was balanced and beautifully pulled.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.862
+    },
+    {
+      "review_id": 14,
+      "date": "2026-10-04",
+      "product": "Espresso",
+      "rating": 5,
+      "review_text": "A lovely little espresso. The crema stayed until the last sip.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.97
+    },
+    {
+      "review_id": 15,
+      "date": "2026-09-04",
+      "product": "Espresso",
+      "rating": 4,
+      "review_text": "The chocolate notes came through clearly. Excellent.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.97
+    },
+    {
+      "review_id": 16,
+      "date": "2026-08-05",
+      "product": "Espresso",
+      "rating": 3,
+      "review_text": "The single shot came in a small ceramic cup.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.899
+    },
+    {
+      "review_id": 17,
+      "date": "2026-11-04",
+      "product": "Espresso",
+      "rating": 3,
+      "review_text": "I ordered it after lunch. It was a typical espresso.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.858
+    },
+    {
+      "review_id": 18,
+      "date": "2026-10-05",
+      "product": "Espresso",
+      "rating": 3,
+      "review_text": "It was neither particularly strong nor particularly mild.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.588
+    },
+    {
+      "review_id": 19,
+      "date": "2026-09-05",
+      "product": "Espresso",
+      "rating": 1,
+      "review_text": "The shot was sour and watery.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.808
+    },
+    {
+      "review_id": 20,
+      "date": "2026-10-06",
+      "product": "Espresso",
+      "rating": 2,
+      "review_text": "My espresso tasted like burnt rubber.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.825
+    },
+    {
+      "review_id": 21,
+      "date": "2026-10-07",
+      "product": "Cold Brew",
+      "rating": 4,
+      "review_text": "Clean and refreshing, even after the ice melted.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.895
+    },
+    {
+      "review_id": 22,
+      "date": "2026-09-06",
+      "product": "Cold Brew",
+      "rating": 5,
+      "review_text": "The cold brew was smooth with a lovely cocoa finish.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.962
+    },
+    {
+      "review_id": 23,
+      "date": "2026-08-06",
+      "product": "Cold Brew",
+      "rating": 4,
+      "review_text": "Finally found a cold brew that I enjoy without sugar.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.846
+    },
+    {
+      "review_id": 24,
+      "date": "2026-11-05",
+      "product": "Cold Brew",
+      "rating": 5,
+      "review_text": "It was cold, strong, and exactly what I wanted on a hot afternoon.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.589
+    },
+    {
+      "review_id": 25,
+      "date": "2026-10-08",
+      "product": "Cold Brew",
+      "rating": 4,
+      "review_text": "I liked the rounded flavor and would buy another bottle.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.946
+    },
+    {
+      "review_id": 26,
+      "date": "2026-09-07",
+      "product": "Cold Brew",
+      "rating": 3,
+      "review_text": "It was served black in a tall glass with ice.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.933
+    },
+    {
+      "review_id": 27,
+      "date": "2026-08-07",
+      "product": "Cold Brew",
+      "rating": 3,
+      "review_text": "The cold brew was fairly ordinary for the price.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.631
+    },
+    {
+      "review_id": 28,
+      "date": "2026-11-06",
+      "product": "Cold Brew",
+      "rating": 3,
+      "review_text": "The drink was strong, which may suit some people.",
+      "true_label": "neutral",
+      "sentiment": "positive",
+      "confidence": 0.701
+    },
+    {
+      "review_id": 29,
+      "date": "2026-10-09",
+      "product": "Cold Brew",
+      "rating": 1,
+      "review_text": "My cold brew tasted stale before I even added milk.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.841
+    },
+    {
+      "review_id": 30,
+      "date": "2026-10-10",
+      "product": "Cold Brew",
+      "rating": 2,
+      "review_text": "There was so much ice that I barely got any coffee.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.797
+    },
+    {
+      "review_id": 31,
+      "date": "2026-11-07",
+      "product": "Croissant",
+      "rating": 4,
+      "review_text": "The croissant shattered into buttery flakes. It was delicious.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.976
+    },
+    {
+      "review_id": 32,
+      "date": "2026-10-11",
+      "product": "Croissant",
+      "rating": 5,
+      "review_text": "It tasted fresh from the oven and the center was beautifully soft.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.977
+    },
+    {
+      "review_id": 33,
+      "date": "2026-09-08",
+      "product": "Croissant",
+      "rating": 4,
+      "review_text": "The almond filling was generous and pleasantly nutty.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.957
+    },
+    {
+      "review_id": 34,
+      "date": "2026-08-08",
+      "product": "Croissant",
+      "rating": 5,
+      "review_text": "I loved the crisp edges and delicate layers.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.962
+    },
+    {
+      "review_id": 35,
+      "date": "2026-11-08",
+      "product": "Croissant",
+      "rating": 4,
+      "review_text": "This was the best plain croissant I have had all month.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.986
+    },
+    {
+      "review_id": 36,
+      "date": "2026-10-12",
+      "product": "Croissant",
+      "rating": 3,
+      "review_text": "It was a regular-sized croissant served on a plate.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.913
+    },
+    {
+      "review_id": 37,
+      "date": "2026-09-09",
+      "product": "Croissant",
+      "rating": 3,
+      "review_text": "There was nothing unusual about the texture or flavor.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.72
+    },
+    {
+      "review_id": 38,
+      "date": "2026-10-13",
+      "product": "Croissant",
+      "rating": 2,
+      "review_text": "The pastry was dry and tasted like it was baked yesterday.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.752
+    },
+    {
+      "review_id": 39,
+      "date": "2026-11-09",
+      "product": "Croissant",
+      "rating": 1,
+      "review_text": "My chocolate croissant was burnt underneath.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.847
+    },
+    {
+      "review_id": 40,
+      "date": "2026-10-14",
+      "product": "Croissant",
+      "rating": 2,
+      "review_text": "The middle was raw and sticky.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.704
+    },
+    {
+      "review_id": 41,
+      "date": "2026-08-09",
+      "product": "Bagel",
+      "rating": 4,
+      "review_text": "The sesame bagel had a great chew and a crisp outside.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.971
+    },
+    {
+      "review_id": 42,
+      "date": "2026-11-10",
+      "product": "Bagel",
+      "rating": 5,
+      "review_text": "The cream cheese was fresh and spread all the way to the edges.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.652
+    },
+    {
+      "review_id": 43,
+      "date": "2026-10-15",
+      "product": "Bagel",
+      "rating": 4,
+      "review_text": "My everything bagel was toasted perfectly.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.972
+    },
+    {
+      "review_id": 44,
+      "date": "2026-09-10",
+      "product": "Bagel",
+      "rating": 5,
+      "review_text": "The bagel was still warm and tasted great with the chive spread.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.965
+    },
+    {
+      "review_id": 45,
+      "date": "2026-08-10",
+      "product": "Bagel",
+      "rating": 4,
+      "review_text": "I loved the generous poppy seed topping.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.975
+    },
+    {
+      "review_id": 46,
+      "date": "2026-11-11",
+      "product": "Bagel",
+      "rating": 3,
+      "review_text": "They served the plain bagel sliced in two.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.916
+    },
+    {
+      "review_id": 47,
+      "date": "2026-10-16",
+      "product": "Bagel",
+      "rating": 3,
+      "review_text": "The bagel was filling, though the flavor was forgettable.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.449
+    },
+    {
+      "review_id": 48,
+      "date": "2026-09-11",
+      "product": "Bagel",
+      "rating": 3,
+      "review_text": "I liked the spread but the bagel was a little tough.",
+      "true_label": "neutral",
+      "sentiment": "positive",
+      "confidence": 0.615
+    },
+    {
+      "review_id": 49,
+      "date": "2026-08-11",
+      "product": "Bagel",
+      "rating": 1,
+      "review_text": "It was so dry that I could not finish it.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.886
+    },
+    {
+      "review_id": 50,
+      "date": "2026-10-17",
+      "product": "Bagel",
+      "rating": 2,
+      "review_text": "The kitchen sent a plain bagel after I ordered sesame.",
+      "true_label": "negative",
+      "sentiment": "neutral",
+      "confidence": 0.859
+    },
+    {
+      "review_id": 51,
+      "date": "2026-09-12",
+      "product": "Matcha",
+      "rating": 4,
+      "review_text": "The matcha tasted grassy and fresh without being bitter.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.751
+    },
+    {
+      "review_id": 52,
+      "date": "2026-08-12",
+      "product": "Matcha",
+      "rating": 5,
+      "review_text": "It was whisked well, with a silky finish.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.592
+    },
+    {
+      "review_id": 53,
+      "date": "2026-11-12",
+      "product": "Matcha",
+      "rating": 4,
+      "review_text": "I enjoyed the earthy flavor and light sweetness.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.955
+    },
+    {
+      "review_id": 54,
+      "date": "2026-10-18",
+      "product": "Matcha",
+      "rating": 5,
+      "review_text": "The iced matcha was balanced, smooth, and worth the price.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.926
+    },
+    {
+      "review_id": 55,
+      "date": "2026-09-13",
+      "product": "Matcha",
+      "rating": 4,
+      "review_text": "I was worried it would be too sweet, but it was just right.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.684
+    },
+    {
+      "review_id": 56,
+      "date": "2026-08-13",
+      "product": "Matcha",
+      "rating": 3,
+      "review_text": "The drink came unsweetened, as listed on the menu.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.938
+    },
+    {
+      "review_id": 57,
+      "date": "2026-11-13",
+      "product": "Matcha",
+      "rating": 3,
+      "review_text": "The matcha was stronger than the latte and lighter than the espresso.",
+      "true_label": "neutral",
+      "sentiment": "positive",
+      "confidence": 0.674
+    },
+    {
+      "review_id": 58,
+      "date": "2026-08-14",
+      "product": "Matcha",
+      "rating": 2,
+      "review_text": "The powder collected in lumps at the bottom.",
+      "true_label": "negative",
+      "sentiment": "neutral",
+      "confidence": 0.875
+    },
+    {
+      "review_id": 59,
+      "date": "2026-09-14",
+      "product": "Matcha",
+      "rating": 1,
+      "review_text": "It tasted mostly like sugar with barely any tea flavor.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.808
+    },
+    {
+      "review_id": 60,
+      "date": "2026-10-19",
+      "product": "Matcha",
+      "rating": 2,
+      "review_text": "Great, a lovely green drink that tastes just like dishwater.",
+      "true_label": "negative",
+      "sentiment": "positive",
+      "confidence": 0.979
+    },
+    {
+      "review_id": 61,
+      "date": "2026-10-20",
+      "product": "Muffin",
+      "rating": 4,
+      "review_text": "The blueberry muffin had real berries in every bite.",
+      "true_label": "positive",
+      "sentiment": "neutral",
+      "confidence": 0.58
+    },
+    {
+      "review_id": 62,
+      "date": "2026-09-15",
+      "product": "Muffin",
+      "rating": 5,
+      "review_text": "I loved the moist center and crunchy sugar topping.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.972
+    },
+    {
+      "review_id": 63,
+      "date": "2026-08-15",
+      "product": "Muffin",
+      "rating": 4,
+      "review_text": "The lemon muffin smelled fresh and had a bright flavor.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.963
+    },
+    {
+      "review_id": 64,
+      "date": "2026-11-14",
+      "product": "Muffin",
+      "rating": 5,
+      "review_text": "It was still warm and the chocolate pieces were melting.",
+      "true_label": "positive",
+      "sentiment": "neutral",
+      "confidence": 0.702
+    },
+    {
+      "review_id": 65,
+      "date": "2026-10-21",
+      "product": "Muffin",
+      "rating": 4,
+      "review_text": "I would come back just for the banana muffin.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.736
+    },
+    {
+      "review_id": 66,
+      "date": "2026-09-16",
+      "product": "Muffin",
+      "rating": 3,
+      "review_text": "The muffin came wrapped in a paper sleeve.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.917
+    },
+    {
+      "review_id": 67,
+      "date": "2026-08-16",
+      "product": "Muffin",
+      "rating": 3,
+      "review_text": "It had some blueberries and was about the size I expected.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.556
+    },
+    {
+      "review_id": 68,
+      "date": "2026-11-15",
+      "product": "Muffin",
+      "rating": 3,
+      "review_text": "The cake was a bit dense, but the topping was nice.",
+      "true_label": "neutral",
+      "sentiment": "positive",
+      "confidence": 0.866
+    },
+    {
+      "review_id": 69,
+      "date": "2026-10-22",
+      "product": "Muffin",
+      "rating": 1,
+      "review_text": "The muffin was hard enough to crumble into dust.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.501
+    },
+    {
+      "review_id": 70,
+      "date": "2026-10-23",
+      "product": "Muffin",
+      "rating": 2,
+      "review_text": "Wonderful, another blueberry muffin with exactly one blueberry.",
+      "true_label": "negative",
+      "sentiment": "positive",
+      "confidence": 0.984
+    },
+    {
+      "review_id": 71,
+      "date": "2026-11-16",
+      "product": "Sandwich",
+      "rating": 4,
+      "review_text": "The turkey sandwich was fresh, crisp, and packed with filling.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.84
+    },
+    {
+      "review_id": 72,
+      "date": "2026-10-24",
+      "product": "Sandwich",
+      "rating": 5,
+      "review_text": "I loved the peppery greens and the warm sourdough.",
+      "true_label": "positive",
+      "sentiment": "positive",
+      "confidence": 0.979
+    },
+    {
+      "review_id": 73,
+      "date": "2026-09-17",
+      "product": "Sandwich",
+      "rating": 3,
+      "review_text": "It came with a small bag of chips and a pickle.",
+      "true_label": "neutral",
+      "sentiment": "neutral",
+      "confidence": 0.788
+    },
+    {
+      "review_id": 74,
+      "date": "2026-10-25",
+      "product": "Sandwich",
+      "rating": 2,
+      "review_text": "The chicken sandwich was cold in the middle.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.554
+    },
+    {
+      "review_id": 75,
+      "date": "2026-10-26",
+      "product": "Sandwich",
+      "rating": 1,
+      "review_text": "The bread was soggy and the filling was bland.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.907
+    },
+    {
+      "review_id": 76,
+      "date": "2026-10-27",
+      "product": "Sandwich",
+      "rating": 2,
+      "review_text": "I found an unripe tomato stem in the middle of my sandwich.",
+      "true_label": "negative",
+      "sentiment": "neutral",
+      "confidence": 0.557
+    },
+    {
+      "review_id": 77,
+      "date": "2026-10-28",
+      "product": "Sandwich",
+      "rating": 1,
+      "review_text": "The sandwich was supposed to have avocado, but it was missing.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.567
+    },
+    {
+      "review_id": 78,
+      "date": "2026-10-29",
+      "product": "Sandwich",
+      "rating": 2,
+      "review_text": "The new kitchen crew gave me the wrong sandwich twice.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.905
+    },
+    {
+      "review_id": 79,
+      "date": "2026-10-30",
+      "product": "Sandwich",
+      "rating": 1,
+      "review_text": "Great, another twenty-minute wait for a sandwich.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.759
+    },
+    {
+      "review_id": 80,
+      "date": "2026-10-31",
+      "product": "Sandwich",
+      "rating": 2,
+      "review_text": "The new staff forgot to toast it, and the cheese was still cold.",
+      "true_label": "negative",
+      "sentiment": "negative",
+      "confidence": 0.761
+    }
+  ],
   "by_product": [
     {
       "product": "Bagel",
@@ -68,1006 +862,6 @@
       "negative": 6
     }
   ],
-  "monthly": [
-    {
-      "month": "2026-08",
-      "positive": 9,
-      "neutral": 5,
-      "negative": 2
-    },
-    {
-      "month": "2026-09",
-      "positive": 10,
-      "neutral": 5,
-      "negative": 2
-    },
-    {
-      "month": "2026-10",
-      "positive": 11,
-      "neutral": 7,
-      "negative": 13
-    },
-    {
-      "month": "2026-11",
-      "positive": 11,
-      "neutral": 4,
-      "negative": 1
-    }
-  ],
-  "evaluation": {
-    "accuracy": 0.8625,
-    "confusion_matrix": {
-      "labels": [
-        "positive",
-        "neutral",
-        "negative"
-      ],
-      "matrix": [
-        [
-          35,
-          2,
-          0
-        ],
-        [
-          4,
-          16,
-          0
-        ],
-        [
-          2,
-          3,
-          18
-        ]
-      ]
-    },
-    "misclassified": [
-      {
-        "review_id": 28,
-        "date": "2026-11-06",
-        "product": "Cold Brew",
-        "rating": 3,
-        "text": "The drink was strong, which may suit some people.",
-        "true_label": "neutral",
-        "sentiment": "positive",
-        "confidence": 0.700819730758667
-      },
-      {
-        "review_id": 48,
-        "date": "2026-09-11",
-        "product": "Bagel",
-        "rating": 3,
-        "text": "I liked the spread but the bagel was a little tough.",
-        "true_label": "neutral",
-        "sentiment": "positive",
-        "confidence": 0.6154637336730957
-      },
-      {
-        "review_id": 50,
-        "date": "2026-10-17",
-        "product": "Bagel",
-        "rating": 2,
-        "text": "The kitchen sent a plain bagel after I ordered sesame.",
-        "true_label": "negative",
-        "sentiment": "neutral",
-        "confidence": 0.8585216403007507
-      },
-      {
-        "review_id": 57,
-        "date": "2026-11-13",
-        "product": "Matcha",
-        "rating": 3,
-        "text": "The matcha was stronger than the latte and lighter than the espresso.",
-        "true_label": "neutral",
-        "sentiment": "positive",
-        "confidence": 0.6742079854011536
-      },
-      {
-        "review_id": 58,
-        "date": "2026-08-14",
-        "product": "Matcha",
-        "rating": 2,
-        "text": "The powder collected in lumps at the bottom.",
-        "true_label": "negative",
-        "sentiment": "neutral",
-        "confidence": 0.8746622800827026
-      },
-      {
-        "review_id": 60,
-        "date": "2026-10-19",
-        "product": "Matcha",
-        "rating": 2,
-        "text": "Great, a lovely green drink that tastes just like dishwater.",
-        "true_label": "negative",
-        "sentiment": "positive",
-        "confidence": 0.978733479976654
-      },
-      {
-        "review_id": 61,
-        "date": "2026-10-20",
-        "product": "Muffin",
-        "rating": 4,
-        "text": "The blueberry muffin had real berries in every bite.",
-        "true_label": "positive",
-        "sentiment": "neutral",
-        "confidence": 0.5799383521080017
-      },
-      {
-        "review_id": 64,
-        "date": "2026-11-14",
-        "product": "Muffin",
-        "rating": 5,
-        "text": "It was still warm and the chocolate pieces were melting.",
-        "true_label": "positive",
-        "sentiment": "neutral",
-        "confidence": 0.7018579840660095
-      },
-      {
-        "review_id": 68,
-        "date": "2026-11-15",
-        "product": "Muffin",
-        "rating": 3,
-        "text": "The cake was a bit dense, but the topping was nice.",
-        "true_label": "neutral",
-        "sentiment": "positive",
-        "confidence": 0.8659593462944031
-      },
-      {
-        "review_id": 70,
-        "date": "2026-10-23",
-        "product": "Muffin",
-        "rating": 2,
-        "text": "Wonderful, another blueberry muffin with exactly one blueberry.",
-        "true_label": "negative",
-        "sentiment": "positive",
-        "confidence": 0.9837995767593384
-      },
-      {
-        "review_id": 76,
-        "date": "2026-10-27",
-        "product": "Sandwich",
-        "rating": 2,
-        "text": "I found an unripe tomato stem in the middle of my sandwich.",
-        "true_label": "negative",
-        "sentiment": "neutral",
-        "confidence": 0.5572156310081482
-      }
-    ]
-  },
-  "rating_mismatch_pct": 21.74,
-  "top_positive": [
-    {
-      "review_id": 35,
-      "text": "This was the best plain croissant I have had all month.",
-      "confidence": 0.9859666228294373
-    },
-    {
-      "review_id": 70,
-      "text": "Wonderful, another blueberry muffin with exactly one blueberry.",
-      "confidence": 0.9837995767593384
-    },
-    {
-      "review_id": 72,
-      "text": "I loved the peppery greens and the warm sourdough.",
-      "confidence": 0.9789319634437561
-    }
-  ],
-  "top_negative": [
-    {
-      "review_id": 75,
-      "text": "The bread was soggy and the filling was bland.",
-      "confidence": 0.9071316123008728
-    },
-    {
-      "review_id": 78,
-      "text": "The new kitchen crew gave me the wrong sandwich twice.",
-      "confidence": 0.9046428799629211
-    },
-    {
-      "review_id": 49,
-      "text": "It was so dry that I could not finish it.",
-      "confidence": 0.886105477809906
-    }
-  ],
-  "reviews": [
-    {
-      "review_id": 1,
-      "date": "2026-08-01",
-      "product": "Latte",
-      "rating": 4,
-      "text": "Silky milk and a deep espresso flavor. I would order it again.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.8149159550666809
-    },
-    {
-      "review_id": 2,
-      "date": "2026-11-01",
-      "product": "Latte",
-      "rating": 5,
-      "text": "Lovely foam and exactly the right temperature.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9768437743186951
-    },
-    {
-      "review_id": 3,
-      "date": "2026-10-01",
-      "product": "Latte",
-      "rating": 4,
-      "text": "The barista made it with oat milk and it tasted excellent.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9751157760620117
-    },
-    {
-      "review_id": 4,
-      "date": "2026-09-01",
-      "product": "Latte",
-      "rating": 5,
-      "text": "The vanilla latte was subtle and wonderfully smooth.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9638130068778992
-    },
-    {
-      "review_id": 5,
-      "date": "2026-08-02",
-      "product": "Latte",
-      "rating": 4,
-      "text": "I did not expect to love the lavender flavor this much.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.8755073547363281
-    },
-    {
-      "review_id": 6,
-      "date": "2026-11-02",
-      "product": "Latte",
-      "rating": 3,
-      "text": "It tasted like the latte I usually get here.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.7801699638366699
-    },
-    {
-      "review_id": 7,
-      "date": "2026-10-02",
-      "product": "Latte",
-      "rating": 3,
-      "text": "The milk and espresso were both noticeable.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.8062214851379395
-    },
-    {
-      "review_id": 8,
-      "date": "2026-09-02",
-      "product": "Latte",
-      "rating": 3,
-      "text": "It was a standard latte, about what I expected.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.8453555107116699
-    },
-    {
-      "review_id": 9,
-      "date": "2026-08-03",
-      "product": "Latte",
-      "rating": 1,
-      "text": "The milk tasted scorched and left a bitter aftertaste.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.8390355110168457
-    },
-    {
-      "review_id": 10,
-      "date": "2026-10-03",
-      "product": "Latte",
-      "rating": 2,
-      "text": "This was lukewarm by the time it reached the table.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.6770599484443665
-    },
-    {
-      "review_id": 11,
-      "date": "2026-09-03",
-      "product": "Espresso",
-      "rating": 4,
-      "text": "A bright shot with a pleasant orange finish.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.946256697177887
-    },
-    {
-      "review_id": 12,
-      "date": "2026-08-04",
-      "product": "Espresso",
-      "rating": 5,
-      "text": "It was rich without the harsh bite I sometimes get.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.5126497149467468
-    },
-    {
-      "review_id": 13,
-      "date": "2026-11-03",
-      "product": "Espresso",
-      "rating": 4,
-      "text": "The double shot was balanced and beautifully pulled.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.861553966999054
-    },
-    {
-      "review_id": 14,
-      "date": "2026-10-04",
-      "product": "Espresso",
-      "rating": 5,
-      "text": "A lovely little espresso. The crema stayed until the last sip.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9696757793426514
-    },
-    {
-      "review_id": 15,
-      "date": "2026-09-04",
-      "product": "Espresso",
-      "rating": 4,
-      "text": "The chocolate notes came through clearly. Excellent.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9700605273246765
-    },
-    {
-      "review_id": 16,
-      "date": "2026-08-05",
-      "product": "Espresso",
-      "rating": 3,
-      "text": "The single shot came in a small ceramic cup.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.8988538980484009
-    },
-    {
-      "review_id": 17,
-      "date": "2026-11-04",
-      "product": "Espresso",
-      "rating": 3,
-      "text": "I ordered it after lunch. It was a typical espresso.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.8575761318206787
-    },
-    {
-      "review_id": 18,
-      "date": "2026-10-05",
-      "product": "Espresso",
-      "rating": 3,
-      "text": "It was neither particularly strong nor particularly mild.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.5883129835128784
-    },
-    {
-      "review_id": 19,
-      "date": "2026-09-05",
-      "product": "Espresso",
-      "rating": 1,
-      "text": "The shot was sour and watery.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.807894229888916
-    },
-    {
-      "review_id": 20,
-      "date": "2026-10-06",
-      "product": "Espresso",
-      "rating": 2,
-      "text": "My espresso tasted like burnt rubber.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.8248341679573059
-    },
-    {
-      "review_id": 21,
-      "date": "2026-10-07",
-      "product": "Cold Brew",
-      "rating": 4,
-      "text": "Clean and refreshing, even after the ice melted.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.8951419591903687
-    },
-    {
-      "review_id": 22,
-      "date": "2026-09-06",
-      "product": "Cold Brew",
-      "rating": 5,
-      "text": "The cold brew was smooth with a lovely cocoa finish.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9617777466773987
-    },
-    {
-      "review_id": 23,
-      "date": "2026-08-06",
-      "product": "Cold Brew",
-      "rating": 4,
-      "text": "Finally found a cold brew that I enjoy without sugar.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.8460753560066223
-    },
-    {
-      "review_id": 24,
-      "date": "2026-11-05",
-      "product": "Cold Brew",
-      "rating": 5,
-      "text": "It was cold, strong, and exactly what I wanted on a hot afternoon.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.5892497301101685
-    },
-    {
-      "review_id": 25,
-      "date": "2026-10-08",
-      "product": "Cold Brew",
-      "rating": 4,
-      "text": "I liked the rounded flavor and would buy another bottle.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9456923604011536
-    },
-    {
-      "review_id": 26,
-      "date": "2026-09-07",
-      "product": "Cold Brew",
-      "rating": 3,
-      "text": "It was served black in a tall glass with ice.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.9329496026039124
-    },
-    {
-      "review_id": 27,
-      "date": "2026-08-07",
-      "product": "Cold Brew",
-      "rating": 3,
-      "text": "The cold brew was fairly ordinary for the price.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.630998432636261
-    },
-    {
-      "review_id": 28,
-      "date": "2026-11-06",
-      "product": "Cold Brew",
-      "rating": 3,
-      "text": "The drink was strong, which may suit some people.",
-      "true_label": "neutral",
-      "sentiment": "positive",
-      "confidence": 0.700819730758667
-    },
-    {
-      "review_id": 29,
-      "date": "2026-10-09",
-      "product": "Cold Brew",
-      "rating": 1,
-      "text": "My cold brew tasted stale before I even added milk.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.8411765694618225
-    },
-    {
-      "review_id": 30,
-      "date": "2026-10-10",
-      "product": "Cold Brew",
-      "rating": 2,
-      "text": "There was so much ice that I barely got any coffee.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.7971200346946716
-    },
-    {
-      "review_id": 31,
-      "date": "2026-11-07",
-      "product": "Croissant",
-      "rating": 4,
-      "text": "The croissant shattered into buttery flakes. It was delicious.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9760396480560303
-    },
-    {
-      "review_id": 32,
-      "date": "2026-10-11",
-      "product": "Croissant",
-      "rating": 5,
-      "text": "It tasted fresh from the oven and the center was beautifully soft.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.97651606798172
-    },
-    {
-      "review_id": 33,
-      "date": "2026-09-08",
-      "product": "Croissant",
-      "rating": 4,
-      "text": "The almond filling was generous and pleasantly nutty.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9568856358528137
-    },
-    {
-      "review_id": 34,
-      "date": "2026-08-08",
-      "product": "Croissant",
-      "rating": 5,
-      "text": "I loved the crisp edges and delicate layers.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9623266458511353
-    },
-    {
-      "review_id": 35,
-      "date": "2026-11-08",
-      "product": "Croissant",
-      "rating": 4,
-      "text": "This was the best plain croissant I have had all month.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9859666228294373
-    },
-    {
-      "review_id": 36,
-      "date": "2026-10-12",
-      "product": "Croissant",
-      "rating": 3,
-      "text": "It was a regular-sized croissant served on a plate.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.9133228063583374
-    },
-    {
-      "review_id": 37,
-      "date": "2026-09-09",
-      "product": "Croissant",
-      "rating": 3,
-      "text": "There was nothing unusual about the texture or flavor.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.7204460501670837
-    },
-    {
-      "review_id": 38,
-      "date": "2026-10-13",
-      "product": "Croissant",
-      "rating": 2,
-      "text": "The pastry was dry and tasted like it was baked yesterday.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.7517779469490051
-    },
-    {
-      "review_id": 39,
-      "date": "2026-11-09",
-      "product": "Croissant",
-      "rating": 1,
-      "text": "My chocolate croissant was burnt underneath.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.8468555212020874
-    },
-    {
-      "review_id": 40,
-      "date": "2026-10-14",
-      "product": "Croissant",
-      "rating": 2,
-      "text": "The middle was raw and sticky.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.7042147517204285
-    },
-    {
-      "review_id": 41,
-      "date": "2026-08-09",
-      "product": "Bagel",
-      "rating": 4,
-      "text": "The sesame bagel had a great chew and a crisp outside.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9707395434379578
-    },
-    {
-      "review_id": 42,
-      "date": "2026-11-10",
-      "product": "Bagel",
-      "rating": 5,
-      "text": "The cream cheese was fresh and spread all the way to the edges.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.6522212624549866
-    },
-    {
-      "review_id": 43,
-      "date": "2026-10-15",
-      "product": "Bagel",
-      "rating": 4,
-      "text": "My everything bagel was toasted perfectly.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9724108576774597
-    },
-    {
-      "review_id": 44,
-      "date": "2026-09-10",
-      "product": "Bagel",
-      "rating": 5,
-      "text": "The bagel was still warm and tasted great with the chive spread.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9645981192588806
-    },
-    {
-      "review_id": 45,
-      "date": "2026-08-10",
-      "product": "Bagel",
-      "rating": 4,
-      "text": "I loved the generous poppy seed topping.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9753044247627258
-    },
-    {
-      "review_id": 46,
-      "date": "2026-11-11",
-      "product": "Bagel",
-      "rating": 3,
-      "text": "They served the plain bagel sliced in two.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.9156025052070618
-    },
-    {
-      "review_id": 47,
-      "date": "2026-10-16",
-      "product": "Bagel",
-      "rating": 3,
-      "text": "The bagel was filling, though the flavor was forgettable.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.4487396478652954
-    },
-    {
-      "review_id": 48,
-      "date": "2026-09-11",
-      "product": "Bagel",
-      "rating": 3,
-      "text": "I liked the spread but the bagel was a little tough.",
-      "true_label": "neutral",
-      "sentiment": "positive",
-      "confidence": 0.6154637336730957
-    },
-    {
-      "review_id": 49,
-      "date": "2026-08-11",
-      "product": "Bagel",
-      "rating": 1,
-      "text": "It was so dry that I could not finish it.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.886105477809906
-    },
-    {
-      "review_id": 50,
-      "date": "2026-10-17",
-      "product": "Bagel",
-      "rating": 2,
-      "text": "The kitchen sent a plain bagel after I ordered sesame.",
-      "true_label": "negative",
-      "sentiment": "neutral",
-      "confidence": 0.8585216403007507
-    },
-    {
-      "review_id": 51,
-      "date": "2026-09-12",
-      "product": "Matcha",
-      "rating": 4,
-      "text": "The matcha tasted grassy and fresh without being bitter.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.7512058615684509
-    },
-    {
-      "review_id": 52,
-      "date": "2026-08-12",
-      "product": "Matcha",
-      "rating": 5,
-      "text": "It was whisked well, with a silky finish.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.592323899269104
-    },
-    {
-      "review_id": 53,
-      "date": "2026-11-12",
-      "product": "Matcha",
-      "rating": 4,
-      "text": "I enjoyed the earthy flavor and light sweetness.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9549633264541626
-    },
-    {
-      "review_id": 54,
-      "date": "2026-10-18",
-      "product": "Matcha",
-      "rating": 5,
-      "text": "The iced matcha was balanced, smooth, and worth the price.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9257165193557739
-    },
-    {
-      "review_id": 55,
-      "date": "2026-09-13",
-      "product": "Matcha",
-      "rating": 4,
-      "text": "I was worried it would be too sweet, but it was just right.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.6839644312858582
-    },
-    {
-      "review_id": 56,
-      "date": "2026-08-13",
-      "product": "Matcha",
-      "rating": 3,
-      "text": "The drink came unsweetened, as listed on the menu.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.9379616975784302
-    },
-    {
-      "review_id": 57,
-      "date": "2026-11-13",
-      "product": "Matcha",
-      "rating": 3,
-      "text": "The matcha was stronger than the latte and lighter than the espresso.",
-      "true_label": "neutral",
-      "sentiment": "positive",
-      "confidence": 0.6742079854011536
-    },
-    {
-      "review_id": 58,
-      "date": "2026-08-14",
-      "product": "Matcha",
-      "rating": 2,
-      "text": "The powder collected in lumps at the bottom.",
-      "true_label": "negative",
-      "sentiment": "neutral",
-      "confidence": 0.8746622800827026
-    },
-    {
-      "review_id": 59,
-      "date": "2026-09-14",
-      "product": "Matcha",
-      "rating": 1,
-      "text": "It tasted mostly like sugar with barely any tea flavor.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.8075621724128723
-    },
-    {
-      "review_id": 60,
-      "date": "2026-10-19",
-      "product": "Matcha",
-      "rating": 2,
-      "text": "Great, a lovely green drink that tastes just like dishwater.",
-      "true_label": "negative",
-      "sentiment": "positive",
-      "confidence": 0.978733479976654
-    },
-    {
-      "review_id": 61,
-      "date": "2026-10-20",
-      "product": "Muffin",
-      "rating": 4,
-      "text": "The blueberry muffin had real berries in every bite.",
-      "true_label": "positive",
-      "sentiment": "neutral",
-      "confidence": 0.5799383521080017
-    },
-    {
-      "review_id": 62,
-      "date": "2026-09-15",
-      "product": "Muffin",
-      "rating": 5,
-      "text": "I loved the moist center and crunchy sugar topping.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.972200334072113
-    },
-    {
-      "review_id": 63,
-      "date": "2026-08-15",
-      "product": "Muffin",
-      "rating": 4,
-      "text": "The lemon muffin smelled fresh and had a bright flavor.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.963154673576355
-    },
-    {
-      "review_id": 64,
-      "date": "2026-11-14",
-      "product": "Muffin",
-      "rating": 5,
-      "text": "It was still warm and the chocolate pieces were melting.",
-      "true_label": "positive",
-      "sentiment": "neutral",
-      "confidence": 0.7018579840660095
-    },
-    {
-      "review_id": 65,
-      "date": "2026-10-21",
-      "product": "Muffin",
-      "rating": 4,
-      "text": "I would come back just for the banana muffin.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.7357057332992554
-    },
-    {
-      "review_id": 66,
-      "date": "2026-09-16",
-      "product": "Muffin",
-      "rating": 3,
-      "text": "The muffin came wrapped in a paper sleeve.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.9171226620674133
-    },
-    {
-      "review_id": 67,
-      "date": "2026-08-16",
-      "product": "Muffin",
-      "rating": 3,
-      "text": "It had some blueberries and was about the size I expected.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.555950403213501
-    },
-    {
-      "review_id": 68,
-      "date": "2026-11-15",
-      "product": "Muffin",
-      "rating": 3,
-      "text": "The cake was a bit dense, but the topping was nice.",
-      "true_label": "neutral",
-      "sentiment": "positive",
-      "confidence": 0.8659593462944031
-    },
-    {
-      "review_id": 69,
-      "date": "2026-10-22",
-      "product": "Muffin",
-      "rating": 1,
-      "text": "The muffin was hard enough to crumble into dust.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.5006652474403381
-    },
-    {
-      "review_id": 70,
-      "date": "2026-10-23",
-      "product": "Muffin",
-      "rating": 2,
-      "text": "Wonderful, another blueberry muffin with exactly one blueberry.",
-      "true_label": "negative",
-      "sentiment": "positive",
-      "confidence": 0.9837995767593384
-    },
-    {
-      "review_id": 71,
-      "date": "2026-11-16",
-      "product": "Sandwich",
-      "rating": 4,
-      "text": "The turkey sandwich was fresh, crisp, and packed with filling.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.8401305079460144
-    },
-    {
-      "review_id": 72,
-      "date": "2026-10-24",
-      "product": "Sandwich",
-      "rating": 5,
-      "text": "I loved the peppery greens and the warm sourdough.",
-      "true_label": "positive",
-      "sentiment": "positive",
-      "confidence": 0.9789319634437561
-    },
-    {
-      "review_id": 73,
-      "date": "2026-09-17",
-      "product": "Sandwich",
-      "rating": 3,
-      "text": "It came with a small bag of chips and a pickle.",
-      "true_label": "neutral",
-      "sentiment": "neutral",
-      "confidence": 0.7879157662391663
-    },
-    {
-      "review_id": 74,
-      "date": "2026-10-25",
-      "product": "Sandwich",
-      "rating": 2,
-      "text": "The chicken sandwich was cold in the middle.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.5541279911994934
-    },
-    {
-      "review_id": 75,
-      "date": "2026-10-26",
-      "product": "Sandwich",
-      "rating": 1,
-      "text": "The bread was soggy and the filling was bland.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.9071316123008728
-    },
-    {
-      "review_id": 76,
-      "date": "2026-10-27",
-      "product": "Sandwich",
-      "rating": 2,
-      "text": "I found an unripe tomato stem in the middle of my sandwich.",
-      "true_label": "negative",
-      "sentiment": "neutral",
-      "confidence": 0.5572156310081482
-    },
-    {
-      "review_id": 77,
-      "date": "2026-10-28",
-      "product": "Sandwich",
-      "rating": 1,
-      "text": "The sandwich was supposed to have avocado, but it was missing.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.5667886734008789
-    },
-    {
-      "review_id": 78,
-      "date": "2026-10-29",
-      "product": "Sandwich",
-      "rating": 2,
-      "text": "The new kitchen crew gave me the wrong sandwich twice.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.9046428799629211
-    },
-    {
-      "review_id": 79,
-      "date": "2026-10-30",
-      "product": "Sandwich",
-      "rating": 1,
-      "text": "Great, another twenty-minute wait for a sandwich.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.7592572569847107
-    },
-    {
-      "review_id": 80,
-      "date": "2026-10-31",
-      "product": "Sandwich",
-      "rating": 2,
-      "text": "The new staff forgot to toast it, and the cheese was still cold.",
-      "true_label": "negative",
-      "sentiment": "negative",
-      "confidence": 0.7612622976303101
-    }
-  ]
+  "accuracy": 86.2,
+  "markdown": "# Customer feedback analysis report\n\nReviews analyzed: **80** \u00b7 Model: `cardiffnlp/twitter-roberta-base-sentiment-latest`\n\n| Sentiment | Reviews | Share |\n| --- | ---: | ---: |\n| Positive | 41 | 51.2% |\n| Neutral | 21 | 26.2% |\n| Negative | 18 | 22.5% |\n\n## By product\n\n| Product | Positive | Neutral | Negative |\n| --- | ---: | ---: | ---: |\n| Bagel | 6 | 3 | 1 |\n| Cold Brew | 6 | 2 | 2 |\n| Croissant | 5 | 2 | 3 |\n| Espresso | 5 | 3 | 2 |\n| Latte | 5 | 3 | 2 |\n| Matcha | 7 | 2 | 1 |\n| Muffin | 5 | 4 | 1 |\n| Sandwich | 2 | 2 | 6 |\n\nAccuracy against the human labels: **86.2%**\n"
 }

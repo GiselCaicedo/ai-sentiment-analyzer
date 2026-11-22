@@ -9,7 +9,7 @@ Read `docs/PLAN.md` before writing code. It is the source of truth. Run **all ph
 
 ## Fixed stack
 
-- Python 3.11, `pandas`, `transformers`, `torch` (CPU), `matplotlib`, `pytest`, `streamlit` (local live demo only).
+- Python 3.11, `pandas`, `transformers`, `torch` (CPU), `pytest`. Keep the code small: `analyzer.py` + `server.py`.
 - Static report site: plain HTML + CSS + vanilla JavaScript (ES modules), no framework and no build step. Deployed to GitHub Pages.
 - Model: `cardiffnlp/twitter-roberta-base-sentiment-latest` (3 labels: negative, neutral, positive).
 
@@ -18,7 +18,7 @@ Read `docs/PLAN.md` before writing code. It is the source of truth. Run **all ph
 - `src/` layout, package `sentiment_analyzer`. Type hints on every public function. `pathlib.Path` for paths. `logging`, not `print`, outside the CLI.
 - Small modules with one job each (see the plan). Pure functions for the analysis so they can be tested without the model.
 - Use a `@dataclass` for config/results where it makes the code clearer. No abstract base classes, no plugin systems, no metaclasses.
-- The model goes behind a small `SentimentClassifier` class with a `predict(texts: list[str]) -> list[Prediction]` method. Tests use a `FakeClassifier` with the same method, so they never download the model.
+- `classify(reviews, model=None)` takes the model as an optional argument. Tests pass a small `fake_model` function, so they never download the model.
 - Short docstrings (one line, plus `Args/Returns` only when not obvious). Run `ruff check` and `ruff format`.
 - No API keys are needed. If one is ever added, it goes in `.env` (git-ignored) and `.env.example`.
 
@@ -31,18 +31,17 @@ Read `docs/PLAN.md` before writing code. It is the source of truth. Run **all ph
 ## Commands
 
 ```bash
-python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scriptsctivate
 pip install -r requirements.txt
-python -m sentiment_analyzer.cli --input data/sample_reviews.csv --out web/data
+python -m sentiment_analyzer.server                 # web app with live analysis (localhost:8000)
+python -m sentiment_analyzer.analyzer               # rebuild web/data/report.json and the Markdown report
 pytest
-streamlit run app/streamlit_app.py
-python -m http.server -d web 8000                   # preview the static site
 ```
 
 ## Definition of done
 
 - `pytest` and `ruff check` pass.
-- Running the CLI regenerates `web/data/report.json`, `web/data/reviews_scored.csv` and `reports/feedback_report.md` without errors.
+- `python -m sentiment_analyzer.analyzer` regenerates `web/data/report.json` and `reports/feedback_report.md` without errors.
 - The static site works when opened through `http.server` and on GitHub Pages.
 
 ## Do not

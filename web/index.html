@@ -3,190 +3,51 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A review of customer sentiment at the fictional Bean & Leaf café chain.">
-  <title>Customer feedback report | Bean &amp; Leaf</title>
+  <title>Sentiment Analyzer | Bean &amp; Leaf</title>
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="app.js"></script>
 </head>
 <body>
-  <a class="skip" href="#content">Skip to report</a>
-  <header class="masthead wrap">
-    <a class="wordmark" href="./">Bean &amp; Leaf</a>
-    <nav aria-label="Report sections">
-      <a href="#products">Products</a>
-      <a href="#evaluation">Evaluation</a>
-      <a href="#reviews">Reviews</a>
-    </nav>
-  </header>
-  <main class="wrap" id="content" tabindex="-1">
-    <header class="report-header">
-      <div>
-        <p class="context">Bean &amp; Leaf café chain</p>
-        <h1>Customer feedback report</h1>
-        <p class="intro">Sentiment across the menu, with review excerpts and a check against hand labels.</p>
-      </div>
-      <p class="edition"><span id="period"></span><br>Fictional customer reviews</p>
+  <main>
+    <header>
+      <p class="brand">Bean &amp; Leaf</p>
+      <h1>Customer sentiment</h1>
+      <p class="muted">Pretrained RoBERTa model (Hugging Face) + Pandas.</p>
     </header>
-    <p id="load-error" role="alert"></p>
-    <p id="loading">Loading the report…</p>
-    <noscript><p>Enable JavaScript to explore the report, or <a href="data/reviews_scored.csv">download the scored reviews</a>.</p></noscript>
 
-    <div id="report" hidden>
-      <section class="snapshot" aria-labelledby="summary-title">
-        <h2 id="summary-title" class="sr-only">Summary</h2>
-        <dl id="summary" class="stats"></dl>
-      </section>
+    <!-- Free field: classify one review, or add it to the dataset -->
+    <form id="form" class="card">
+      <label for="review">Write a review</label>
+      <div class="fields">
+        <textarea id="review" rows="2" placeholder="The croissant was amazing."></textarea>
+        <select id="product" aria-label="Product"></select>
+      </div>
+      <div class="actions">
+        <button type="submit" class="primary">Classify</button>
+        <button type="button" id="add">Add to dataset</button>
+        <p id="status" role="status"></p>
+      </div>
+    </form>
 
-      <section class="report-section split" id="sentiment">
-        <div>
-          <h2>Sentiment breakdown</h2>
-          <p class="muted">How RoBERTa classified the reviews.</p>
-        </div>
-        <figure>
-          <div class="bars" id="sentiment-chart"></div>
-        </figure>
-      </section>
+    <!-- Dataset report: filled in by app.js -->
+    <section id="results" hidden>
+      <p class="muted" id="source"></p>
+      <div class="stats" id="stats"></div>
+      <div class="card" id="bars"></div>
 
-      <section class="report-section" id="products">
-        <div class="section-head">
-          <div>
-            <h2>Sentiment by product</h2>
-            <p id="product-insight" class="muted"></p>
-          </div>
-          <ul class="legend" aria-label="Sentiment series">
-            <li><span class="swatch positive"></span>Positive</li>
-            <li><span class="swatch neutral"></span>Neutral</li>
-            <li><span class="swatch negative"></span>Negative</li>
-          </ul>
-        </div>
-        <figure>
-          <div id="product-chart" class="bars product-bars"></div>
-          <figcaption>Each bar shows review counts. Products are ordered by negative review count.</figcaption>
-        </figure>
-      </section>
+      <div class="card">
+        <h2>By product</h2>
+        <table id="products"></table>
+      </div>
 
-      <section class="report-section split" id="trend">
-        <div>
-          <h2>Monthly trend</h2>
-          <p id="trend-insight" class="muted"></p>
-          <ul class="legend trend-legend" aria-label="Monthly sentiment series">
-            <li><span class="line-key positive"></span>Positive</li>
-            <li><span class="line-key neutral"></span>Neutral</li>
-            <li><span class="line-key negative"></span>Negative</li>
-          </ul>
+      <div class="card">
+        <div class="row">
+          <h2>Reviews</h2>
+          <a id="download" download="feedback_report.md">Download report</a>
         </div>
-        <figure>
-          <div id="monthly-chart"></div>
-          <details class="data-details">
-            <summary>Monthly counts</summary>
-            <table id="months">
-              <caption class="sr-only">Review counts by sentiment and month</caption>
-              <thead><tr><th scope="col">Month</th><th scope="col">Positive</th><th scope="col">Neutral</th><th scope="col">Negative</th></tr></thead>
-              <tbody></tbody>
-            </table>
-          </details>
-        </figure>
-      </section>
-
-      <section class="report-section" id="voices">
-        <h2>What customers say</h2>
-        <p class="muted">The model’s highest-confidence examples. Check the hand label for disagreements.</p>
-        <div class="columns quote-columns">
-          <div>
-            <h3>What customers love</h3>
-            <div id="quotes-positive"></div>
-          </div>
-          <div>
-            <h3>What customers complain about</h3>
-            <div id="quotes-negative"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="report-section" id="evaluation">
-        <div class="section-head">
-          <div>
-            <h2>Model evaluation</h2>
-            <p class="muted" id="evaluation-line"></p>
-          </div>
-        </div>
-        <div class="columns">
-          <div>
-            <h3>Confusion matrix</h3>
-            <p class="muted">Hand labels in rows, model predictions in columns.</p>
-            <div class="table-scroll" role="region" aria-labelledby="matrix-caption" tabindex="0">
-              <table id="matrix" class="matrix">
-                <caption id="matrix-caption" class="sr-only">Count of reviews by hand label and model prediction</caption>
-                <thead></thead>
-                <tbody></tbody>
-              </table>
-            </div>
-          </div>
-          <div>
-            <h3>Low ratings</h3>
-            <p id="rating-insight"></p>
-            <h3 id="mistakes-title">Misclassified reviews</h3>
-            <div class="error-scroll" role="region" aria-labelledby="mistakes-title" tabindex="0">
-              <ul id="misclassified" class="error-list"></ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="report-section" id="reviews">
-        <div class="section-head">
-          <h2>Explore the reviews</h2>
-          <a class="download" href="data/reviews_scored.csv" download>Download scored CSV <span aria-hidden="true">↓</span></a>
-        </div>
-        <search aria-label="Filter reviews">
-          <form id="filters" class="filters">
-            <div>
-              <label for="filter-query">Review text</label>
-              <input id="filter-query" type="search" name="query" placeholder="Search review text">
-            </div>
-            <div>
-              <label for="filter-sentiment">Predicted sentiment</label>
-              <select id="filter-sentiment" name="sentiment">
-                <option value="">All sentiments</option>
-              </select>
-            </div>
-            <div>
-              <label for="filter-product">Product</label>
-              <select id="filter-product" name="product">
-                <option value="">All products</option>
-              </select>
-            </div>
-            <button type="reset">Clear filters</button>
-          </form>
-        </search>
-        <p id="review-status" role="status" class="muted"></p>
-        <div class="table-scroll review-scroll" role="region" aria-labelledby="reviews-caption" tabindex="0">
-          <table class="reviews-table">
-            <caption id="reviews-caption" class="sr-only">Scored customer reviews</caption>
-            <thead><tr>
-              <th scope="col">Review</th>
-              <th scope="col">Product</th>
-              <th scope="col">Rating</th>
-              <th scope="col">Predicted</th>
-              <th scope="col">Confidence</th>
-              <th scope="col">Hand label</th>
-              <th scope="col">Date</th>
-            </tr></thead>
-            <tbody id="reviews-body"></tbody>
-          </table>
-        </div>
-      </section>
-    </div>
+        <div class="scroll"><table id="table"></table></div>
+      </div>
+    </section>
   </main>
-  <footer class="wrap report-footer">
-    <div>
-      <p class="wordmark">Bean &amp; Leaf</p>
-      <p id="generated"></p>
-    </div>
-    <div>
-      <p>Model <a id="model-link" href="https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest">CardiffNLP RoBERTa</a></p>
-      <p>The model was trained on English tweets. Sarcasm and mixed reviews can be difficult, and accuracy applies to this fictional sample.</p>
-    </div>
-  </footer>
 </body>
 </html>
