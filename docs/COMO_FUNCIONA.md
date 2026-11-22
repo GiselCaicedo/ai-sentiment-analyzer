@@ -74,6 +74,13 @@ y `reports/feedback_report.md`.
 - **¿Qué tan bueno es?** 86,2 % de acierto en las 80 reseñas. Falla más con sarcasmo y reseñas mixtas.
 - **¿Por qué la reseña agregada no cambia la precisión?** No tiene etiqueta humana para comparar.
 - **¿Por qué hace falta un servidor?** El modelo corre en Python; el navegador no puede ejecutarlo.
+- **¿Cómo usa el modelo la página desplegada en GitHub Pages?** GitHub Pages solo guarda archivos
+  (HTML, CSS, JS). Cuando la página está en `github.io`, `app.js` manda las peticiones a
+  `http://localhost:8000`, el servidor de Python en mi PC. El servidor responde con permisos **CORS**
+  (`Access-Control-Allow-Origin`) para que el navegador acepte esa comunicación entre dos sitios.
+  Sin el servidor encendido, la página muestra el último reporte guardado (`data/report.json`).
+- **¿Por qué no lo desplegaron con el modelo en la nube?** El modelo usa ~880 MB de RAM y los
+  hostings gratuitos dan 512 MB; Hugging Face Spaces ahora cobra por apps con Python.
 - **¿Cómo prueban sin descargar el modelo?** `classify` recibe el modelo como argumento; los tests
   le pasan `fake_model`, una función que imita al modelo, y usan una copia temporal del CSV.
 
