@@ -4,8 +4,3 @@ services:
     build: .
     ports:
       - "8000:8000"
-    volumes:
-      - models:/models   # keeps the downloaded model between runs
-
-volumes:
-  models:
