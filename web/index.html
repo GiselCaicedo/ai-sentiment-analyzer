@@ -4,35 +4,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sentiment Analyzer | Bean &amp; Leaf</title>
-  <link rel="stylesheet" href="styles.css?v=3">
-  <script type="module" src="app.js?v=3"></script>
+  <link rel="stylesheet" href="styles.css?v=5">
+  <script type="module" src="app.js?v=5"></script>
 </head>
 <body>
-  <main>
-    <header>
+  <header class="hero">
+    <div class="wrap">
       <p class="brand">Bean &amp; Leaf</p>
       <h1>Customer sentiment</h1>
-    </header>
+    </div>
+  </header>
 
+  <main class="wrap">
     <!-- Free field: classify one review, or add it to the dataset -->
-    <form id="form" class="card">
+    <form id="form" class="card try">
       <label for="review">Write a review</label>
-      <div class="fields">
-        <textarea id="review" rows="2" placeholder="The croissant was amazing."></textarea>
-        <select id="product" aria-label="Product"></select>
-      </div>
+      <textarea id="review" rows="3" placeholder="The croissant was amazing."></textarea>
       <div class="actions">
+        <select id="product" aria-label="Product"></select>
         <button type="submit" class="primary">Classify</button>
         <button type="button" id="add">Add to dataset</button>
-        <p id="status" role="status"></p>
       </div>
+      <p id="status" role="status"></p>
     </form>
 
     <!-- Dataset report: filled in by app.js -->
     <section id="results" hidden>
-      <p class="muted" id="source"></p>
       <div class="stats" id="stats"></div>
-      <div class="card" id="bars"></div>
+      <div class="card">
+        <h2>Overall</h2>
+        <div id="bars"></div>
+      </div>
 
       <div class="card">
         <h2>By product</h2>
@@ -42,7 +44,7 @@
       <div class="card">
         <div class="row">
           <h2>Reviews</h2>
-          <a id="download" download="feedback_report.md">Download report</a>
+          <a id="download" class="button" download="feedback_report.md">Download report</a>
         </div>
         <div class="scroll"><table id="table"></table></div>
       </div>

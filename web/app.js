@@ -21,10 +21,22 @@ function fillTable(table, header, rows) {
   }
 }
 
+// A bar with three colored parts. Works with percentages or counts (flex-grow keeps the proportion).
+function splitBar(values) {
+  const bar = document.createElement("div");
+  bar.className = "split";
+  for (const label of LABELS) {
+    const part = document.createElement("i");
+    part.className = label;
+    part.style.flexGrow = values[label];
+    bar.append(part);
+  }
+  return bar;
+}
+
 // Draw the dataset report sent by the server (same shape as data/report.json).
 function show(report) {
   current = report;
-  $("source").textContent = "Dataset: data/sample_reviews.csv · " + report.total + " reviews";
 
   // Number cards: total, % per sentiment, accuracy.
   const cards = [["Reviews", report.total, ""]];
@@ -40,22 +52,24 @@ function show(report) {
     $("stats").append(card);
   }
 
-  // Bars: the width of each bar is its percentage.
-  $("bars").replaceChildren();
+  // One bar split in three: the width of each part is its percentage.
+  const legend = document.createElement("div");
+  legend.className = "legend";
   for (const label of LABELS) {
-    const row = document.createElement("div");
-    row.className = "bar " + label;
-    row.innerHTML = "<span></span><div><i></i></div><b></b>";
-    row.querySelector("span").textContent = label;
-    row.querySelector("i").style.width = report.percentages[label] + "%";
-    row.querySelector("b").textContent = report.counts[label];
-    $("bars").append(row);
+    const item = document.createElement("span");
+    item.className = label;
+    item.textContent = label + " · " + report.counts[label];
+    legend.append(item);
   }
+  $("bars").replaceChildren(splitBar(report.percentages), legend);
 
-  // Table by product, and the product list for the free field.
+  // Table by product (with a small bar per product), and the product list for the free field.
   const products = report.by_product.map((p) => p.product);
-  fillTable($("products"), ["Product", "Positive", "Neutral", "Negative"],
-    report.by_product.map((p) => [p.product, p.positive, p.neutral, p.negative]));
+  fillTable($("products"), ["Product", "", "Positive", "Neutral", "Negative"],
+    report.by_product.map((p) => [p.product, "", p.positive, p.neutral, p.negative]));
+  for (const [i, p] of report.by_product.entries()) {
+    $("products").rows[i + 1].cells[1].append(splitBar(p));
+  }
   $("product").replaceChildren(...products.map((name) => new Option(name)));
 
   // Every review with the model's answer, newest first.
