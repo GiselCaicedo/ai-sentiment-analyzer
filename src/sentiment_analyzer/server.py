@@ -43,20 +43,43 @@ class Handler(SimpleHTTPRequestHandler):
         except Exception as error:
             self.send_json({"error": f"Something failed: {error}"}, status=500)
 
+    def do_OPTIONS(self):
+        """The browser asks first if the GitHub Pages site may call this server."""
+        self.send_response(204)
+        self.allow_other_sites()
+        self.end_headers()
+
+    def allow_other_sites(self):
+        """CORS: let the page on GitHub Pages talk to this server on my PC."""
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Access-Control-Allow-Private-Network", "true")
+
     def send_json(self, data: dict, status: int = 200):
         body = json.dumps(data).encode("utf-8")
         self.send_response(status)
+        self.allow_other_sites()
         self.send_header("Content-Type", "application/json")
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
 
 
-def make_server(port: int = PORT) -> ThreadingHTTPServer:
+class Server(ThreadingHTTPServer):
+    # On Windows this option lets two servers share port 8000 by mistake; turn it off there.
+    allow_reuse_address = os.name != "nt"
+
+
+def make_server(port: int = PORT) -> Server:
     handler = partial(Handler, directory=str(analyzer.PROJECT / "web"))
-    return ThreadingHTTPServer((HOST, port), handler)
+    return Server((HOST, port), handler)
 
 
 if __name__ == "__main__":
-    print(f"Open http://localhost:{PORT}  (Ctrl+C to stop)")
-    make_server().serve_forever()
+    try:
+        httpd = make_server()
+    except OSError:
+        raise SystemExit(f"Port {PORT} is busy: the server is already running in another window.")
+    print(f"Open http://localhost:{PORT} or the GitHub Pages link  (Ctrl+C to stop)")
+    httpd.serve_forever()

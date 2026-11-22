@@ -2,7 +2,9 @@
 // and has a free field to classify one review or add it to the dataset.
 
 const LABELS = ["positive", "neutral", "negative"];
-const NO_SERVER = "Saved report. To classify reviews, run: python -m sentiment_analyzer.server";
+const NO_SERVER = "Saved report. To classify reviews, start the server on this PC: python -m sentiment_analyzer.server";
+// On GitHub Pages the model is not there, so the page talks to the server running on my PC.
+const API = location.hostname.endsWith("github.io") ? "http://localhost:8000/" : "";
 const $ = (id) => document.getElementById(id);
 let current = null; // the report on screen, to show what changed after "Add to dataset"
 
@@ -70,7 +72,7 @@ function show(report) {
 
 // Send JSON to the server and return its answer (or throw its error message).
 async function post(url, data) {
-  const response = await fetch(url, { method: "POST", body: JSON.stringify(data) });
+  const response = await fetch(API + url, { method: "POST", body: JSON.stringify(data) });
   const answer = await response.json();
   if (!response.ok) throw new Error(answer.error);
   return answer;
@@ -119,7 +121,7 @@ $("add").addEventListener("click", async () => {
 
 // On page load: the server analyzes the dataset in data/.
 // Without a server (GitHub Pages) show the last saved report instead.
-fetch("api/report")
+fetch(API + "api/report")
   .then((response) => response.json())
   .catch(() => {
     showNoServer();

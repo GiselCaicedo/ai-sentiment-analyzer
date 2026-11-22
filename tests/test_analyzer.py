@@ -113,6 +113,11 @@ def test_server_routes(dataset, monkeypatch):
 
         status, answer = post(url + "/api/add", {"text": ""})
         assert (status, answer["error"]) == (400, "Write a review first.")
+
+        # CORS: the page on GitHub Pages is allowed to call this server
+        with urlopen(Request(url + "/api/add", method="OPTIONS"), timeout=5) as response:
+            assert response.status == 204
+            assert response.headers["Access-Control-Allow-Origin"] == "*"
     finally:
         httpd.shutdown()
         httpd.server_close()
