@@ -4,6 +4,7 @@
 const LABELS = ["positive", "neutral", "negative"];
 const NO_SERVER = "Start the server first: python -m sentiment_analyzer.server";
 const $ = (id) => document.getElementById(id);
+let current = null; // the report on screen, to show what changed after "Add to dataset"
 
 // Build an HTML table from a header row and data rows (textContent avoids injecting HTML).
 function fillTable(table, header, rows) {
@@ -20,6 +21,7 @@ function fillTable(table, header, rows) {
 
 // Draw the dataset report sent by the server (same shape as data/report.json).
 function show(report) {
+  current = report;
   $("source").textContent = "Dataset: data/sample_reviews.csv · " + report.total + " reviews";
 
   // Number cards: total, % per sentiment, accuracy.
@@ -100,9 +102,11 @@ $("add").addEventListener("click", async () => {
   $("status").textContent = "Adding and re-analyzing the dataset…";
   try {
     const report = await post("api/add", { text: $("review").value, product: $("product").value });
+    const label = report.reviews.at(-1).sentiment; // the new review is the last row
+    const before = current.percentages[label];
     show(report);
-    const added = report.reviews.at(-1);
-    $("status").textContent = "Added as " + added.sentiment + ". The dataset now has " + report.total + " reviews.";
+    $("status").textContent = "Added as " + label + ". " + label + " " + before + "% → "
+      + report.percentages[label] + "% (" + report.total + " reviews).";
     $("review").value = "";
   } catch (error) {
     showError(error);

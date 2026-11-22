@@ -46,7 +46,7 @@ def add_review(text: str, product: str, path: Path = DATASET) -> None:
         "true_label": "",  # no human label, so it does not count for accuracy
     }
     # mode="a" appends one line at the end; the rest of the file is not touched
-    pd.DataFrame([new_row]).to_csv(path, mode="a", header=False, index=False, lineterminator="\n")
+    pd.DataFrame([new_row]).to_csv(path, mode="a", header=False, index=False)
 
 
 # 2. Use a pretrained sentiment model ----------------------------------------
