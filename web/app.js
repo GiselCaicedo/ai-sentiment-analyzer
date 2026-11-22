@@ -123,6 +123,10 @@ $("add").addEventListener("click", async () => {
 // Without a server (GitHub Pages) show the last saved report instead.
 fetch(API + "api/report")
   .then((response) => response.json())
+  .then((report) => {
+    $("status").textContent = "Connected: the model is running on this PC.";
+    return report;
+  })
   .catch(() => {
     showNoServer();
     return fetch("data/report.json").then((response) => response.json());
