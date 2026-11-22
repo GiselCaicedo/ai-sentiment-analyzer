@@ -29,11 +29,17 @@ def load_reviews(path: Path = DATASET) -> pd.DataFrame:
     return reviews.reset_index(drop=True)
 
 
-def add_review(text: str, product: str, path: Path = DATASET) -> None:
-    """Append one new review as a row at the end of the dataset CSV."""
-    text = " ".join(text.split())  # one line, no extra spaces
+def clean_text(text: str) -> str:
+    """Put a typed review in one line without extra spaces; it cannot be empty."""
+    text = " ".join(text.split())
     if not text:
         raise ValueError("Write a review first.")
+    return text
+
+
+def add_review(text: str, product: str, path: Path = DATASET) -> None:
+    """Append one new review as a row at the end of the dataset CSV."""
+    text = clean_text(text)
     dataset = pd.read_csv(path, keep_default_na=False)
     if text in dataset["review_text"].values:
         raise ValueError("That review is already in the dataset.")
@@ -78,10 +84,7 @@ def classify(reviews: pd.DataFrame, model=None) -> pd.DataFrame:
 
 def classify_text(text: str, model=None) -> dict:
     """Classify a single review typed by the user (it is not saved)."""
-    text = " ".join(text.split())
-    if not text:
-        raise ValueError("Write a review first.")
-    scored = classify(pd.DataFrame({"review_text": [text]}), model)
+    scored = classify(pd.DataFrame({"review_text": [clean_text(text)]}), model)
     return scored.iloc[0][["review_text", "sentiment", "confidence"]].to_dict()
 
 

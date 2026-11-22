@@ -1,7 +1,7 @@
-# Web page with the live analyzer. Used locally (docker compose) and on Hugging Face Spaces.
+# Web page with the live analyzer: docker compose up --build -> http://localhost:8000
 FROM python:3.11-slim
 
-# Hugging Face Spaces runs the container as user 1000
+# Run as a normal user, not root
 RUN useradd -m -u 1000 user
 WORKDIR /app
 

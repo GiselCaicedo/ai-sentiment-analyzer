@@ -64,10 +64,28 @@ def style_chart(chart):
 
 def insight_panel(slide, x, y, w, h, heading, bullets):
     add_rect(slide, x, y, w, h, BG_GRAY)
-    add_text(slide, x + Inches(0.25), y + Inches(0.2), w - Inches(0.5), Inches(0.4),
-             heading, font_size=SUB_HEADER_SIZE, font_color=NAVY, bold=True)
-    add_text(slide, x + Inches(0.25), y + Inches(0.75), w - Inches(0.5), h - Inches(0.9),
-             bullets, font_size=BODY_SIZE, font_color=DARK_GRAY, line_spacing=Pt(10))
+    add_text(
+        slide,
+        x + Inches(0.25),
+        y + Inches(0.2),
+        w - Inches(0.5),
+        Inches(0.4),
+        heading,
+        font_size=SUB_HEADER_SIZE,
+        font_color=NAVY,
+        bold=True,
+    )
+    add_text(
+        slide,
+        x + Inches(0.25),
+        y + Inches(0.75),
+        w - Inches(0.5),
+        h - Inches(0.9),
+        bullets,
+        font_size=BODY_SIZE,
+        font_color=DARK_GRAY,
+        line_spacing=Pt(10),
+    )
 
 
 # 1. Cover: the thesis as the title -------------------------------------------
@@ -99,10 +117,30 @@ s = eng.three_stat(
 s = eng.four_column(
     title="Four tasks turn raw reviews into a report the business can use",
     items=[
-        ("1", "Load reviews", ["Read the sample CSV", "Trim spaces", "Drop empty and repeated reviews"]),
-        ("2", "Pretrained model", ["RoBERTa from Hugging Face", "Already trained for sentiment", "No training, no API key"]),
-        ("3", "Classify reviews", ["Positive, neutral or negative", "Confidence from 0 to 1", "All reviews in one call"]),
-        ("4", "Count with Pandas", ["Totals and percentages", "Breakdown by product", "Feedback report (.md)"]),
+        (
+            "1",
+            "Load reviews",
+            ["Read the sample CSV", "Trim spaces", "Drop empty and repeated reviews"],
+        ),
+        (
+            "2",
+            "Pretrained model",
+            [
+                "RoBERTa from Hugging Face",
+                "Already trained for sentiment",
+                "No training, no API key",
+            ],
+        ),
+        (
+            "3",
+            "Classify reviews",
+            ["Positive, neutral or negative", "Confidence from 0 to 1", "All reviews in one call"],
+        ),
+        (
+            "4",
+            "Count with Pandas",
+            ["Totals and percentages", "Breakdown by product", "Feedback report (.md)"],
+        ),
     ],
     source="Source: Project 19 student tasks and expected output (Gen AI Bootcamp)",
 )
@@ -143,15 +181,34 @@ s = eng.process_chevron(
     source="Source: src/sentiment_analyzer/analyzer.py",
 )
 code_y = Inches(3.9)
-add_text(s, LM, code_y, CW, Inches(0.4), "The Pandas part, inside summarize()",
-         font_size=BODY_SIZE, font_color=NAVY, bold=True)
+add_text(
+    s,
+    LM,
+    code_y,
+    CW,
+    Inches(0.4),
+    "The Pandas part, inside summarize()",
+    font_size=BODY_SIZE,
+    font_color=NAVY,
+    bold=True,
+)
 add_rect(s, LM, code_y + Inches(0.45), CW, Inches(1.55), NAVY)
-add_text(s, LM + Inches(0.3), code_y + Inches(0.55), CW - Inches(0.6), Inches(1.4), [
-    'counts = scored["sentiment"].value_counts().reindex(LABELS, fill_value=0)',
-    'percentages = (counts / len(scored) * 100).round(1)',
-    'by_product = pd.crosstab(scored["product"], scored["sentiment"])',
-], font_size=BODY_SIZE, font_name="Consolas", font_color=RGBColor(0xFF, 0xFF, 0xFF),
-    line_spacing=Pt(8))
+add_text(
+    s,
+    LM + Inches(0.3),
+    code_y + Inches(0.55),
+    CW - Inches(0.6),
+    Inches(1.4),
+    [
+        'counts = scored["sentiment"].value_counts().reindex(LABELS, fill_value=0)',
+        "percentages = (counts / len(scored) * 100).round(1)",
+        'by_product = pd.crosstab(scored["product"], scored["sentiment"])',
+    ],
+    font_size=BODY_SIZE,
+    font_name="Consolas",
+    font_color=RGBColor(0xFF, 0xFF, 0xFF),
+    line_spacing=Pt(8),
+)
 
 # 6. Web app and deployment (real screenshot) -------------------------------------
 s = eng._ns()
@@ -160,18 +217,45 @@ img_h = Inches(5.0)
 img_w = int(img_h * 1280 / 900)
 img_x = LM + CW - img_w
 left_w = img_x - LM - Inches(0.35)
-add_text(s, LM, CONTENT_TOP, left_w, Inches(0.4), "How the demo works",
-         font_size=SUB_HEADER_SIZE, font_color=NAVY, bold=True)
-add_text(s, LM, CONTENT_TOP + Inches(0.55), left_w, Inches(3.0), [
-    "GitHub Pages hosts the page (deploy requirement)",
-    "server.py runs the model on my PC, port 8000",
-    "The page calls /api/report, /api/classify and /api/add",
-    "Without the server, it shows the last saved report",
-], font_size=BODY_SIZE, line_spacing=Pt(10))
+add_text(
+    s,
+    LM,
+    CONTENT_TOP,
+    left_w,
+    Inches(0.4),
+    "How the demo works",
+    font_size=SUB_HEADER_SIZE,
+    font_color=NAVY,
+    bold=True,
+)
+add_text(
+    s,
+    LM,
+    CONTENT_TOP + Inches(0.55),
+    left_w,
+    Inches(3.0),
+    [
+        "GitHub Pages hosts the page (deploy requirement)",
+        "server.py runs the model on my PC, port 8000",
+        "The page calls /api/report, /api/classify and /api/add",
+        "Without the server, it shows the last saved report",
+    ],
+    font_size=BODY_SIZE,
+    line_spacing=Pt(10),
+)
 add_rect(s, LM, CONTENT_TOP + Inches(3.9), left_w, Inches(1.1), BG_GRAY)
-add_text(s, LM + Inches(0.2), CONTENT_TOP + Inches(3.9), left_w - Inches(0.4), Inches(1.1),
-         ["Live page:", "giselcaicedo.github.io/", "ai-sentiment-analyzer"], font_size=BODY_SIZE,
-         font_color=NAVY, bold=True, anchor=MSO_ANCHOR.MIDDLE)
+add_text(
+    s,
+    LM + Inches(0.2),
+    CONTENT_TOP + Inches(3.9),
+    left_w - Inches(0.4),
+    Inches(1.1),
+    ["Live page:", "giselcaicedo.github.io/", "ai-sentiment-analyzer"],
+    font_size=BODY_SIZE,
+    font_color=NAVY,
+    bold=True,
+    anchor=MSO_ANCHOR.MIDDLE,
+)
 pic = s.shapes.add_picture(str(SCREENSHOT), img_x, CONTENT_TOP, img_w, img_h)
 pic.line.color.rgb = LINE_GRAY
 eng._footer(s, "Source: screenshot of the running app (localhost, original 80 reviews)")
@@ -179,8 +263,14 @@ eng._footer(s, "Source: screenshot of the running app (localhost, original 80 re
 # 7. Results by product (native stacked bar) --------------------------------------
 products = ["Sandwich", "Croissant", "Cold Brew", "Espresso", "Latte", "Bagel", "Matcha", "Muffin"]
 counts = {  # positive, neutral, negative per product (model output)
-    "Sandwich": (2, 2, 6), "Croissant": (5, 2, 3), "Cold Brew": (6, 2, 2), "Espresso": (5, 3, 2),
-    "Latte": (5, 3, 2), "Bagel": (6, 3, 1), "Matcha": (7, 2, 1), "Muffin": (5, 4, 1),
+    "Sandwich": (2, 2, 6),
+    "Croissant": (5, 2, 3),
+    "Cold Brew": (6, 2, 2),
+    "Espresso": (5, 3, 2),
+    "Latte": (5, 3, 2),
+    "Bagel": (6, 3, 1),
+    "Matcha": (7, 2, 1),
+    "Muffin": (5, 4, 1),
 }
 s = eng._ns()
 add_action_title(s, "Sandwiches get 6 of 18 negative reviews: the first thing to fix")
@@ -202,17 +292,26 @@ for series, color in zip(chart.series, [ACCENT_RED, MID_GRAY, LIGHT_GRAY]):
     series.format.fill.fore_color.rgb = color
     series.data_labels.show_value = True
     series.data_labels.font.size = Pt(11)
-    series.data_labels.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF) if color != LIGHT_GRAY else DARK_GRAY
+    series.data_labels.font.color.rgb = (
+        RGBColor(0xFF, 0xFF, 0xFF) if color != LIGHT_GRAY else DARK_GRAY
+    )
 chart.plots[0].gap_width = 60
 chart.value_axis.visible = False
 chart.value_axis.has_major_gridlines = False
-insight_panel(s, LM + chart_w + Inches(0.3), CONTENT_TOP, CW - chart_w - Inches(0.3), Inches(5.1),
-              "What the counts say", [
-                  "Overall: 51% positive, 26% neutral, 23% negative",
-                  "Sandwich is the only product with more negative than positive reviews",
-                  "Matcha and Bagel lead on positive reviews",
-                  "Each product has 10 reviews",
-              ])
+insight_panel(
+    s,
+    LM + chart_w + Inches(0.3),
+    CONTENT_TOP,
+    CW - chart_w - Inches(0.3),
+    Inches(5.1),
+    "What the counts say",
+    [
+        "Overall: 51% positive, 26% neutral, 23% negative",
+        "Sandwich is the only product with more negative than positive reviews",
+        "Matcha and Bagel lead on positive reviews",
+        "Each product has 10 reviews",
+    ],
+)
 eng._footer(s, DATA_SRC + "; counts by product with pd.crosstab")
 
 # 8. Results by month (native column chart, October highlighted) ------------------
@@ -240,13 +339,20 @@ for i, point in enumerate(plot.series[0].points):
 chart.value_axis.visible = False
 chart.value_axis.has_major_gridlines = False
 chart.value_axis.maximum_scale = 15
-insight_panel(s, LM + chart_w + Inches(0.3), CONTENT_TOP, CW - chart_w - Inches(0.3), Inches(5.1),
-              "Inside October", [
-                  "13 of the 18 negative reviews (72%) are from October",
-                  "6 of them are sandwiches",
-                  "Several mention the “new staff” or the “new kitchen crew”",
-                  "November is back to 1 negative review",
-              ])
+insight_panel(
+    s,
+    LM + chart_w + Inches(0.3),
+    CONTENT_TOP,
+    CW - chart_w - Inches(0.3),
+    Inches(5.1),
+    "Inside October",
+    [
+        "13 of the 18 negative reviews (72%) are from October",
+        "6 of them are sandwiches",
+        "Several mention the “new staff” or the “new kitchen crew”",
+        "November is back to 1 negative review",
+    ],
+)
 eng._footer(s, DATA_SRC + "; counts by month with pd.crosstab")
 
 # 9. Model evaluation ---------------------------------------------------------------

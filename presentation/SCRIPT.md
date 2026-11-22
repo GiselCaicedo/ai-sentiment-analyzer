@@ -59,7 +59,7 @@ Now let me show you how it works.
 
 > **Live demo (2–3 minutes)**
 > 1. Show the terminal with the server running.
-> 2. Open the GitHub Pages link. Point to "Connected: the model is running on this PC."
+> 2. Open the GitHub Pages link. Say: "The numbers come from the model running on my laptop right now."
 > 3. Type a review, for example: *"The coffee was cold and the staff ignored me."* Click **Classify**. Say: "The model says negative, with high confidence."
 > 4. Click **Add to dataset**. Say: "Now the review is saved in the CSV, and the report is calculated again. Look, the negative percentage went up."
 > 5. Click **Download report**. Say: "This is the customer feedback report, the expected output of the project."

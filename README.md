@@ -35,3 +35,10 @@ The first run downloads the model (~500 MB).
 
 On GitHub Pages the page shows the saved report; the buttons need the local server.
 Reviews added from the page are appended to `data/sample_reviews.csv` (`git checkout data/sample_reviews.csv` restores it).
+
+## Limitations
+
+- The 80 reviews are a small, fictional sample ([source details](data/DATA_SOURCE.md)).
+- The model only understands English, and it misses sarcasm ("Amazing croissant, if you enjoy chewing cardboard" → positive, 98 %).
+- One sentiment per review, even when a review talks about several things.
+- The model needs ~880 MB of memory, so it runs on a laptop, not on a free cloud server.

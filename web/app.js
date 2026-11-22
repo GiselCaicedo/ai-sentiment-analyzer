@@ -64,13 +64,12 @@ function show(report) {
   $("bars").replaceChildren(splitBar(report.percentages), legend);
 
   // Table by product (with a small bar per product), and the product list for the free field.
-  const products = report.by_product.map((p) => p.product);
   fillTable($("products"), ["Product", "", "Positive", "Neutral", "Negative"],
     report.by_product.map((p) => [p.product, "", p.positive, p.neutral, p.negative]));
   for (const [i, p] of report.by_product.entries()) {
     $("products").rows[i + 1].cells[1].append(splitBar(p));
   }
-  $("product").replaceChildren(...products.map((name) => new Option(name)));
+  $("product").replaceChildren(...report.by_product.map((p) => new Option(p.product)));
 
   // Every review with the model's answer, newest first.
   const rows = report.reviews.toReversed().map((r) => [
