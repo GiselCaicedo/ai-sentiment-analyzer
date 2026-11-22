@@ -2,7 +2,7 @@
 
 Analyzed **80** reviews after dropping **0** blank or duplicate rows.
 
-Model **cardiffnlp/twitter-roberta-base-sentiment-latest** · Generated 2026-11-17T23:35:56+00:00
+Model **cardiffnlp/twitter-roberta-base-sentiment-latest** · Generated 2026-11-22T13:24:40+00:00
 
 ## Sentiment breakdown
 
